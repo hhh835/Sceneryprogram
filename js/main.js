@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== 图片轮播自动切换 ==========
     const carouselImages = document.querySelectorAll('.carousel-image');
     const indicators = document.querySelectorAll('.indicator');
+    const titleItems = document.querySelectorAll('.title-item');
     let currentIndex = 0;
     const totalImages = carouselImages.length;
 
@@ -101,11 +102,15 @@ document.addEventListener('DOMContentLoaded', function() {
         carouselImages.forEach(img => img.classList.remove('active'));
         // 移除所有指示器的活动状态
         indicators.forEach(ind => ind.classList.remove('active'));
+        // 移除所有标题项的活动状态
+        titleItems.forEach(item => item.classList.remove('active'));
 
         // 显示当前图片
         carouselImages[index].classList.add('active');
         // 激活当前指示器
         indicators[index].classList.add('active');
+        // 激活当前标题项
+        titleItems[index].classList.add('active');
     }
 
     function nextImage() {
@@ -116,6 +121,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // 点击指示器切换图片
     indicators.forEach((indicator, index) => {
         indicator.addEventListener('click', function() {
+            currentIndex = index;
+            showImage(currentIndex);
+        });
+    });
+
+    // 点击标题项切换图片
+    titleItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
             currentIndex = index;
             showImage(currentIndex);
         });
