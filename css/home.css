@@ -440,6 +440,20 @@
     color: var(--white);
 }
 
+/* 活动状态的标题项 */
+#news .title-item.active {
+    background: var(--primary-light);
+    color: var(--white);
+    border-color: var(--primary-light);
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.2);
+}
+
+#news .title-item.active h4 {
+    color: var(--white);
+    font-weight: 600;
+}
+
 /* 标题下方按钮区域 */
 #news .title-section-buttons {
     display: flex;
