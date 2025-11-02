@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方寸屏间 · 万里河山</title>
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+    <!-- ========== Header 导航栏 ========== -->
+    <header id="header">
+        <nav>
+            <!-- LOGO 区域 -->
+            <div class="logo">
+                <img src="assets/images/logo.svg" alt="方寸屏间 · 万里河山 LOGO">
+                <span>方寸屏间 · 万里河山</span>
+            </div>
+
+            <!-- 导航菜单 -->
+            <ul class="nav-menu">
+                <li><a href="#hero">首页</a></li>
+                <li><a href="#news">新闻</a></li>
+                <li><a href="modules/map.html">数字中国行</a></li>
+                <li><a href="modules/about.html">About us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ========== Hero 区（山河卷全屏背景） ========== -->
+    <section id="hero">
+        <h1 class="main-title">Landing page title</h1>
+        <p class="subtitle">页面介绍</p>
+        <button id="enter-shanhe-btn" class="cta-button">点击进入山河卷</button>
+    </section>
+
+    <!-- ========== 山河卷全屏展示模态框 ========== -->
+    <div id="shanhe-modal" class="shanhe-modal">
+        <div class="shanhe-content">
+            <!-- 退出按钮 -->
+            <button class="close-btn" id="close-shanhe">×</button>
+
+            <!-- 图片1 -->
+            <div class="shanhe-slide active" data-slide="0">
+                <div class="slide-image">
+                    <img src="assets/images/shanhe-gallery-1.jpg" alt="山河图1">
+                </div>
+                <div class="slide-text">
+                    <h2 class="slide-title">方寸屏间</h2>
+                    <p class="slide-description">万里河山尽收眼底</p>
+                </div>
+            </div>
+
+            <!-- 图片2 -->
+            <div class="shanhe-slide" data-slide="1">
+                <div class="slide-image">
+                    <img src="assets/images/shanhe-gallery-2.jpg" alt="山河图2">
+                </div>
+                <div class="slide-text">
+                    <h2 class="slide-title">数字山河</h2>
+                    <p class="slide-description">科技与自然的融合</p>
+                </div>
+            </div>
+
+            <!-- 图片3 -->
+            <div class="shanhe-slide" data-slide="2">
+                <div class="slide-image">
+                    <img src="assets/images/shanhe-gallery-3.jpg" alt="山河图3">
+                </div>
+                <div class="slide-text">
+                    <h2 class="slide-title">视觉盛宴</h2>
+                    <p class="slide-description">沉浸式山河体验</p>
+                </div>
+            </div>
+
+            <!-- 图片4 -->
+            <div class="shanhe-slide" data-slide="3">
+                <div class="slide-image">
+                    <img src="assets/images/shanhe-gallery-4.jpg" alt="山河图4">
+                </div>
+                <div class="slide-text">
+                    <h2 class="slide-title">壮美河山</h2>
+                    <p class="slide-description">每一帧都是风景</p>
+                </div>
+            </div>
+
+            <!-- 图片5 -->
+            <div class="shanhe-slide" data-slide="4">
+                <div class="slide-image">
+                    <img src="assets/images/shanhe-gallery-5.jpg" alt="山河图5">
+                </div>
+                <div class="slide-text">
+                    <h2 class="slide-title">锦绣中华</h2>
+                    <p class="slide-description">大美中国，震撼呈现</p>
+                </div>
+            </div>
+
+            <!-- 滚动提示 -->
+            <div class="scroll-hint">
+                <span>滚动查看更多 ↓</span>
+            </div>
+        </div>
+
+        <!-- 黑屏过渡层 -->
+        <div class="fade-overlay" id="fade-overlay"></div>
+    </div>
+
+    <!-- ========== 新闻资讯区 ========== -->
+    <section id="news">
+        <div class="news-container">
+            <h2 class="section-title">新闻资讯（展示）</h2>
+
+            <div class="news-grid">
+                <!-- 新闻卡片 1 -->
+                <article class="news-card expandable">
+                    <div class="news-header">
+                        <div class="news-image">
+                            <img src="assets/images/news-1.jpg" alt="新闻图片1">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title">新闻标题1</h3>
+                            <p class="news-summary">这里是新闻摘要内容...</p>
+                            <button class="expand-btn" aria-expanded="false">
+                                <span class="expand-text">展开阅读</span>
+                                <span class="arrow">▼</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="news-expanded-content">
+                        <div class="expanded-content-inner">
+                            <p class="news-full-content">
+                                这是新闻的完整内容区域。点击展开按钮后，这里会显示新闻的详细内容。
+                                这里可以放置更丰富的新闻信息，包括更多文字、图片、视频或其他多媒体元素。
+                                让读者能够深入了解新闻的各个方面，了解事件的背景、细节和影响。
+                            </p>
+                            <div class="news-meta">
+                                <span class="publish-date">发布时间：2025-11-02</span>
+                                <span class="author">作者：编辑</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 新闻卡片 2 -->
+                <article class="news-card expandable">
+                    <div class="news-header">
+                        <div class="news-image">
+                            <img src="assets/images/news-2.jpg" alt="新闻图片2">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title">新闻标题2</h3>
+                            <p class="news-summary">这里是新闻摘要内容...</p>
+                            <button class="expand-btn" aria-expanded="false">
+                                <span class="expand-text">展开阅读</span>
+                                <span class="arrow">▼</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="news-expanded-content">
+                        <div class="expanded-content-inner">
+                            <p class="news-full-content">
+                                这是新闻的完整内容区域。点击展开按钮后，这里会显示新闻的详细内容。
+                                这里可以放置更丰富的新闻信息，包括更多文字、图片、视频或其他多媒体元素。
+                                让读者能够深入了解新闻的各个方面，了解事件的背景、细节和影响。
+                            </p>
+                            <div class="news-meta">
+                                <span class="publish-date">发布时间：2025-11-02</span>
+                                <span class="author">作者：编辑</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 新闻卡片 3 -->
+                <article class="news-card expandable">
+                    <div class="news-header">
+                        <div class="news-image">
+                            <img src="assets/images/news-3.jpg" alt="新闻图片3">
+                        </div>
+                        <div class="news-content">
+                            <h3 class="news-title">新闻标题3</h3>
+                            <p class="news-summary">这里是新闻摘要内容...</p>
+                            <button class="expand-btn" aria-expanded="false">
+                                <span class="expand-text">展开阅读</span>
+                                <span class="arrow">▼</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="news-expanded-content">
+                        <div class="expanded-content-inner">
+                            <p class="news-full-content">
+                                这是新闻的完整内容区域。点击展开按钮后，这里会显示新闻的详细内容。
+                                这里可以放置更丰富的新闻信息，包括更多文字、图片、视频或其他多媒体元素。
+                                让读者能够深入了解新闻的各个方面，了解事件的背景、细节和影响。
+                            </p>
+                            <div class="news-meta">
+                                <span class="publish-date">发布时间：2025-11-02</span>
+                                <span class="author">作者：编辑</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ========== 新闻详情展开区（五个标题 + 大图 + 按钮） ========== -->
+            <div class="news-expanded-section">
+                <div class="news-expanded-container">
+                    <!-- 左侧：新闻标题列表 -->
+                    <div class="news-titles-column">
+                        <h3 class="column-title">新闻标题</h3>
+                        <div class="title-list">
+                            <div class="title-item">
+                                <h4>新闻标题</h4>
+                            </div>
+                            <div class="title-item">
+                                <h4>新闻标题</h4>
+                            </div>
+                            <div class="title-item">
+                                <h4>新闻标题</h4>
+                            </div>
+                            <div class="title-item">
+                                <h4>新闻标题</h4>
+                            </div>
+                            <div class="title-item">
+                                <h4>新闻标题</h4>
+                            </div>
+                        </div>
+
+                        <!-- 标题下方按钮 -->
+                        <div class="title-section-buttons">
+                            <button class="title-btn back-to-top-btn">回到顶部</button>
+                            <button class="title-btn continue-btn" onclick="window.location.href='modules/map.html'">继续探索 → 数字中国行</button>
+                        </div>
+                    </div>
+
+                    <!-- 右侧：大图片轮播 -->
+                    <div class="news-image-column">
+                        <div class="image-carousel-container">
+                            <div class="image-carousel">
+                                <img src="assets/images/news-carousel-1.jpg" alt="新闻轮播图1" class="carousel-image active">
+                                <img src="assets/images/news-carousel-2.jpg" alt="新闻轮播图2" class="carousel-image">
+                                <img src="assets/images/news-carousel-3.jpg" alt="新闻轮播图3" class="carousel-image">
+                                <img src="assets/images/news-carousel-4.jpg" alt="新闻轮播图4" class="carousel-image">
+                                <img src="assets/images/news-carousel-5.jpg" alt="新闻轮播图5" class="carousel-image">
+                            </div>
+                            <!-- 轮播指示器 -->
+                            <div class="carousel-indicators">
+                                <span class="indicator active" data-index="0"></span>
+                                <span class="indicator" data-index="1"></span>
+                                <span class="indicator" data-index="2"></span>
+                                <span class="indicator" data-index="3"></span>
+                                <span class="indicator" data-index="4"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== Footer 页脚 ========== -->
+    <footer id="footer">
+        <div class="footer-content">
+            <p class="copyright">&copy; 2025 方寸屏间 · 万里河山</p>
+            <div class="footer-info">
+                <span class="work-address">工作地址：[待填写]</span>
+                <span class="contact-phone">手机：[待填写]</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 引入 JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
