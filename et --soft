@@ -1,0 +1,29 @@
+[33mcommit 29bbf3bb89efc4400dbd295032ad06d60fa17032[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfrontend-A[m[33m)[m
+Author: wjx <3258734865@qq.com>
+Date:   Tue Nov 4 16:11:14 2025 +0800
+
+    初稿
+
+[33mcommit d91ee0a81988a68b6f512c9cdac2be27830d4e2c[m
+Author: Liu Hao <18789681591@163.com>
+Date:   Sun Nov 2 22:39:07 2025 +0800
+
+    首页和新闻框架
+
+[33mcommit c27455fd5136002cc90a36ccfcf93b7c50836df7[m[33m ([m[1;32mwjx[m[33m, [m[1;32mmain[m[33m)[m
+Author: Liu Hao <18789681591@163.com>
+Date:   Sat Oct 25 17:56:15 2025 +0800
+
+    修正拼写错误
+
+[33mcommit 090cde384590e3031dfcf4bd533309cdfbf94f00[m
+Author: Liu Hao <18789681591@163.com>
+Date:   Sat Oct 25 17:47:26 2025 +0800
+
+    初始化项目目录结构
+
+[33mcommit b8bb55d1950d43a96b357488aaacf8f68fc2d575[m
+Author: olivia <18789681591@163.com>
+Date:   Sat Oct 25 01:05:58 2025 +0800
+
+    Initial commit
