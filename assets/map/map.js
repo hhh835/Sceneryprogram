@@ -3,17 +3,80 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 获取所有地图区域元素
     const mapRegions = document.querySelectorAll('.map-region');
-    // 获取所有区域卡片
-    const regionCards = document.querySelectorAll('.region-card');
-    // 获取默认卡片
-    const defaultCard = document.getElementById('default-card');
+
+    // ========== 模式切换功能 ==========
+    const modeTabs = document.querySelectorAll('.mode-tab');
+    const virtualMode = document.getElementById('virtual-mode');
+    const guardianMode = document.getElementById('guardian-mode');
+    const virtualDefaultCard = document.getElementById('virtual-default-card');
+    const guardianDefaultCard = document.getElementById('guardian-default-card');
+
+    // 当前模式状态
+    let currentMode = 'virtual'; // 默认虚拟中国模式
+
+    // 模式切换事件
+    modeTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const mode = this.getAttribute('data-mode');
+            switchMode(mode);
+        });
+    });
+
+    /**
+     * 切换模式
+     * @param {string} mode - 'virtual' 或 'guardian'
+     */
+    function switchMode(mode) {
+        // 更新标签页状态
+        modeTabs.forEach(tab => {
+            tab.classList.remove('active');
+            if (tab.getAttribute('data-mode') === mode) {
+                tab.classList.add('active');
+            }
+        });
+
+        // 切换模式内容
+        if (mode === 'virtual') {
+            virtualMode.classList.add('active');
+            guardianMode.classList.remove('active');
+            currentMode = 'virtual';
+            // 显示虚拟中国默认卡片
+            virtualDefaultCard.classList.add('active');
+        } else {
+            guardianMode.classList.add('active');
+            virtualMode.classList.remove('active');
+            currentMode = 'guardian';
+            // 显示智慧守护默认卡片
+            guardianDefaultCard.classList.add('active');
+        }
+
+        // 移除所有地图区域的激活状态
+        mapRegions.forEach(region => {
+            region.classList.remove('active');
+        });
+
+        // 隐藏所有内容容器
+        const attractionsContainer = document.getElementById('attractions-container');
+        const dataCardsContainer = document.getElementById('data-cards-container');
+        if (attractionsContainer) {
+            attractionsContainer.classList.remove('active');
+        }
+        if (dataCardsContainer) {
+            dataCardsContainer.classList.remove('active');
+        }
+
+        // 隐藏所有区域卡片和数据
+        const virtualCards = document.querySelectorAll('[id^="virtual-card-"]');
+        const guardianData = document.querySelectorAll('[id^="guardian-data-"]');
+        virtualCards.forEach(card => card.classList.remove('active'));
+        guardianData.forEach(data => data.classList.remove('active'));
+    }
 
     // 为每个地图区域添加点击事件
     mapRegions.forEach(region => {
         region.addEventListener('click', function() {
             // 获取区域标识
             const regionId = this.getAttribute('data-region');
-            const regionName = this.getAttribute('data-region-name');
 
             // 移除所有区域和卡片的激活状态
             removeActiveStates();
@@ -21,8 +84,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // 激活当前点击的区域
             this.classList.add('active');
 
-            // 显示对应的卡片
-            showRegionCard(regionId);
+            // 根据当前模式显示对应内容
+            if (currentMode === 'virtual') {
+                showVirtualCard(regionId);
+            } else {
+                showGuardianData(regionId);
+            }
 
             // 添加点击动画效果
             addClickAnimation(this);
@@ -47,43 +114,97 @@ document.addEventListener('DOMContentLoaded', function() {
         mapRegions.forEach(region => {
             region.classList.remove('active');
         });
-
-        // 隐藏所有区域卡片
-        regionCards.forEach(card => {
-            card.classList.remove('active');
-        });
     }
 
     /**
-     * 显示指定区域的卡片
-     * @param {string} regionId - 区域ID (north/south/west/east/northeast)
+     * 显示虚拟中国模式的景区卡片
+     * @param {string} regionId - 区域ID
      */
-    function showRegionCard(regionId) {
-        // 隐藏默认卡片
-        if (defaultCard) {
-            defaultCard.classList.remove('active');
+    function showVirtualCard(regionId) {
+        // 隐藏虚拟中国默认卡片
+        if (virtualDefaultCard) {
+            virtualDefaultCard.classList.remove('active');
         }
 
-        // 显示对应的区域卡片
-        const targetCard = document.getElementById(`card-${regionId}`);
-        if (targetCard) {
-            // 添加淡出动画到默认卡片
-            if (defaultCard && defaultCard.classList.contains('active')) {
-                defaultCard.style.opacity = '0';
-                setTimeout(() => {
-                    defaultCard.classList.remove('active');
-                    defaultCard.style.opacity = '1';
-                }, 200);
-            }
+        // 显示景区容器
+        const attractionsContainer = document.getElementById('attractions-container');
+        if (attractionsContainer) {
+            attractionsContainer.classList.add('active');
+        }
 
-            // 显示目标卡片
+        // 隐藏所有虚拟中国卡片
+        const virtualCards = document.querySelectorAll('[id^="virtual-card-"]');
+        virtualCards.forEach(card => {
+            card.classList.remove('active');
+        });
+
+        // 显示对应的区域卡片
+        const targetCard = document.getElementById(`virtual-card-${regionId}`);
+        if (targetCard) {
             setTimeout(() => {
                 targetCard.classList.add('active');
+                // 滚动到对应的卡片
+                targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }, 150);
 
             // 为卡片内容添加动画
             animateCardContent(targetCard);
         }
+    }
+
+    /**
+     * 显示智慧守护模式的数据卡片
+     * @param {string} regionId - 区域ID
+     */
+    function showGuardianData(regionId) {
+        // 隐藏智慧守护默认卡片
+        if (guardianDefaultCard) {
+            guardianDefaultCard.classList.remove('active');
+        }
+
+        // 显示数据容器
+        const dataCardsContainer = document.getElementById('data-cards-container');
+        if (dataCardsContainer) {
+            dataCardsContainer.classList.add('active');
+        }
+
+        // 隐藏所有区域数据
+        const guardianData = document.querySelectorAll('[id^="guardian-data-"]');
+        guardianData.forEach(data => {
+            data.classList.remove('active');
+        });
+
+        // 显示对应的区域数据
+        const targetData = document.getElementById(`guardian-data-${regionId}`);
+        if (targetData) {
+            setTimeout(() => {
+                targetData.classList.add('active');
+            }, 150);
+
+            // 为数据卡片添加动画
+            animateDataCards(targetData);
+        }
+    }
+
+    /**
+     * 为数据卡片添加动画效果
+     * @param {HTMLElement} dataContainer - 数据容器元素
+     */
+    function animateDataCards(dataContainer) {
+        const dataCards = dataContainer.querySelectorAll('.data-card');
+
+        dataCards.forEach((card, index) => {
+            // 重置动画
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+
+            // 依次显示
+            setTimeout(() => {
+                card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
     }
 
     /**

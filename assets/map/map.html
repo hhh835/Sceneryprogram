@@ -36,7 +36,13 @@
         <div class="map-container">
             <!-- 左侧地图区域 -->
             <div class="map-section">
-                <h2 class="section-title">数字中国行</h2>
+                <div class="title-with-tabs">
+                    <h2 class="section-title">数字中国行</h2>
+                    <div class="mode-tabs">
+                        <button class="mode-tab active" data-mode="virtual">虚拟中国</button>
+                        <button class="mode-tab" data-mode="guardian">智慧守护</button>
+                    </div>
+                </div>
                 <p class="section-subtitle">点击地图上的区域，探索中国大地</p>
 
                 <!-- 地图背景 -->
@@ -89,114 +95,248 @@
                 </div>
             </div>
 
-            <!-- 右侧卡片区域 -->
+            <!-- 右侧信息区域 -->
             <div class="info-section">
                 <h3 class="info-title">探索详情</h3>
 
-                <!-- 默认提示卡片 -->
-                <div class="info-card default-card active" id="default-card">
-                    <div class="card-icon">🗺️</div>
-                    <h4 class="card-title">选择探索区域</h4>
-                    <p class="card-description">点击左侧地图上的任意区域，了解该地区的人文景观与自然风光</p>
+                <!-- ========== 虚拟中国模式（景区介绍）========== -->
+                <div class="mode-content" id="virtual-mode">
+                    <!-- 默认提示卡片 -->
+                    <div class="info-card default-card active" id="virtual-default-card">
+                        <div class="card-icon">🗺️</div>
+                        <h4 class="card-title">选择探索区域</h4>
+                        <p class="card-description">点击左侧地图上的任意区域，了解该地区的景区景点与自然风光</p>
+                    </div>
+
+                    <!-- 景区介绍卡片容器 - 可滚动 -->
+                    <div class="attractions-container" id="attractions-container">
+                        <!-- 华北地区景区 -->
+                        <div class="info-card region-card" id="virtual-card-north">
+                            <div class="card-image">
+                                <img src="../../assets/images/region-north.jpg" alt="华北地区景区">
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">华北地区</h4>
+                                <p class="card-description">
+                                    华北地区作为中华文明的发源地之一，拥有丰富的历史文化底蕴。
+                                    从万里长城到古都北京，从山西平遥到内蒙草原，每一处都诉说着千年历史。
+                                </p>
+                                <div class="card-highlights">
+                                    <span class="highlight-tag">历史文化</span>
+                                    <span class="highlight-tag">古都风貌</span>
+                                    <span class="highlight-tag">自然风光</span>
+                                </div>
+                                <button class="explore-btn">景区详情 →</button>
+                            </div>
+                        </div>
+
+                        <!-- 华南地区景区 -->
+                        <div class="info-card region-card" id="virtual-card-south">
+                            <div class="card-image">
+                                <img src="../../assets/images/region-south.jpg" alt="华南地区景区">
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">华南地区</h4>
+                                <p class="card-description">
+                                    华南地区以亚热带风光著称，桂林山水甲天下，厦门鼓浪屿浪漫迷人，
+                                    广东深圳现代繁华，香港澳门中西合璧，构成一幅多元文化的美丽画卷。
+                                </p>
+                                <div class="card-highlights">
+                                    <span class="highlight-tag">山水甲天下</span>
+                                    <span class="highlight-tag">现代都市</span>
+                                    <span class="highlight-tag">海岛风情</span>
+                                </div>
+                                <button class="explore-btn">景区详情 →</button>
+                            </div>
+                        </div>
+
+                        <!-- 西北地区景区 -->
+                        <div class="info-card region-card" id="virtual-card-west">
+                            <div class="card-image">
+                                <img src="../../assets/images/region-west.jpg" alt="西北地区景区">
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">西北地区</h4>
+                                <p class="card-description">
+                                    西北地区以其壮阔的自然景观闻名于世，敦煌莫高窟艺术瑰宝，
+                                    青海湖碧波荡漾，新疆天山雪峰巍峨，这里是大自然的鬼斧神工与人类文明的完美融合。
+                                </p>
+                                <div class="card-highlights">
+                                    <span class="highlight-tag">丝绸之路</span>
+                                    <span class="highlight-tag">大漠风光</span>
+                                    <span class="highlight-tag">民族风情</span>
+                                </div>
+                                <button class="explore-btn">景区详情 →</button>
+                            </div>
+                        </div>
+
+                        <!-- 华东地区景区 -->
+                        <div class="info-card region-card" id="virtual-card-east">
+                            <div class="card-image">
+                                <img src="../../assets/images/region-east.jpg" alt="华东地区景区">
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">华东地区</h4>
+                                <p class="card-description">
+                                    华东地区是中国的经济文化中心之一，黄山归来不看岳，
+                                    西湖烟雨蒙蒙，苏州园林精巧雅致，上海外滩繁华璀璨，展现着江南水乡与现代都市的双重魅力。
+                                </p>
+                                <div class="card-highlights">
+                                    <span class="highlight-tag">江南水乡</span>
+                                    <span class="highlight-tag">现代都市</span>
+                                    <span class="highlight-tag">文化古迹</span>
+                                </div>
+                                <button class="explore-btn">景区详情 →</button>
+                            </div>
+                        </div>
+
+                        <!-- 东北地区景区 -->
+                        <div class="info-card region-card" id="virtual-card-northeast">
+                            <div class="card-image">
+                                <img src="../../assets/images/region-northeast.jpg" alt="东北地区景区">
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">东北地区</h4>
+                                <p class="card-description">
+                                    东北地区冬季银装素裹，长白山天池神秘莫测，黑龙江畔冰封千里，
+                                    这里既是工业重镇，也是旅游胜地，独特的东北文化魅力十足。
+                                </p>
+                                <div class="card-highlights">
+                                    <span class="highlight-tag">林海雪原</span>
+                                    <span class="highlight-tag">工业重镇</span>
+                                    <span class="highlight-tag">民俗文化</span>
+                                </div>
+                                <button class="explore-btn">景区详情 →</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- 华北地区卡片 -->
-                <div class="info-card region-card" id="card-north">
-                    <div class="card-image">
-                        <img src="../../assets/images/region-north.jpg" alt="华北地区">
+                <!-- ========== 智慧守护模式（数据展示）========== -->
+                <div class="mode-content" id="guardian-mode">
+                    <!-- 默认提示卡片 -->
+                    <div class="info-card default-card active" id="guardian-default-card">
+                        <div class="card-icon">🌿</div>
+                        <h4 class="card-title">选择探索区域</h4>
+                        <p class="card-description">点击左侧地图上的任意区域，查看该地区的生态环保数据</p>
                     </div>
-                    <div class="card-content">
-                        <h4 class="card-title">华北地区</h4>
-                        <p class="card-description">
-                            华北地区作为中华文明的发源地之一，拥有丰富的历史文化底蕴。
-                            从万里长城到古都北京，从山西平遥到内蒙草原，每一处都诉说着千年历史。
-                        </p>
-                        <div class="card-highlights">
-                            <span class="highlight-tag">历史文化</span>
-                            <span class="highlight-tag">古都风貌</span>
-                            <span class="highlight-tag">自然风光</span>
-                        </div>
-                        <button class="explore-btn">深入探索 →</button>
-                    </div>
-                </div>
 
-                <!-- 华南地区卡片 -->
-                <div class="info-card region-card" id="card-south">
-                    <div class="card-image">
-                        <img src="../../assets/images/region-south.jpg" alt="华南地区">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">华南地区</h4>
-                        <p class="card-description">
-                            华南地区以亚热带风光著称，桂林山水甲天下，厦门鼓浪屿浪漫迷人，
-                            广东深圳现代繁华，香港澳门中西合璧，构成一幅多元文化的美丽画卷。
-                        </p>
-                        <div class="card-highlights">
-                            <span class="highlight-tag">山水甲天下</span>
-                            <span class="highlight-tag">现代都市</span>
-                            <span class="highlight-tag">海岛风情</span>
-                        </div>
-                        <button class="explore-btn">深入探索 →</button>
-                    </div>
-                </div>
+                    <!-- 三个数据卡片容器 -->
+                    <div class="data-cards-container" id="data-cards-container">
+                        <!-- 华北地区数据 -->
+                        <div class="region-data" id="guardian-data-north">
+                            <!-- 森林覆盖率卡片 -->
+                            <div class="data-card">
+                                <div class="data-icon">🌲</div>
+                                <div class="data-label">森林覆盖率</div>
+                                <div class="data-value">32.5%</div>
+                                <div class="data-trend trend-up">↑ 2.3%</div>
+                            </div>
 
-                <!-- 西北地区卡片 -->
-                <div class="info-card region-card" id="card-west">
-                    <div class="card-image">
-                        <img src="../../assets/images/region-west.jpg" alt="西北地区">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">西北地区</h4>
-                        <p class="card-description">
-                            西北地区以其壮阔的自然景观闻名于世，敦煌莫高窟艺术瑰宝，
-                            青海湖碧波荡漾，新疆天山雪峰巍峨，这里是大自然的鬼斧神工与人类文明的完美融合。
-                        </p>
-                        <div class="card-highlights">
-                            <span class="highlight-tag">丝绸之路</span>
-                            <span class="highlight-tag">大漠风光</span>
-                            <span class="highlight-tag">民族风情</span>
-                        </div>
-                        <button class="explore-btn">深入探索 →</button>
-                    </div>
-                </div>
+                            <!-- 空气质量卡片 -->
+                            <div class="data-card">
+                                <div class="data-icon">☁️</div>
+                                <div class="data-label">空气质量</div>
+                                <div class="data-value">良</div>
+                                <div class="data-trend trend-up">↑ 改善</div>
+                            </div>
 
-                <!-- 华东地区卡片 -->
-                <div class="info-card region-card" id="card-east">
-                    <div class="card-image">
-                        <img src="../../assets/images/region-east.jpg" alt="华东地区">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">华东地区</h4>
-                        <p class="card-description">
-                            华东地区是中国的经济文化中心之一，黄山归来不看岳，
-                            西湖烟雨蒙蒙，苏州园林精巧雅致，上海外滩繁华璀璨，展现着江南水乡与现代都市的双重魅力。
-                        </p>
-                        <div class="card-highlights">
-                            <span class="highlight-tag">江南水乡</span>
-                            <span class="highlight-tag">现代都市</span>
-                            <span class="highlight-tag">文化古迹</span>
+                            <!-- 水质变化卡片 -->
+                            <div class="data-card">
+                                <div class="data-icon">💧</div>
+                                <div class="data-label">水质变化</div>
+                                <div class="data-value">Ⅲ类</div>
+                                <div class="data-trend trend-stable">→ 稳定</div>
+                            </div>
                         </div>
-                        <button class="explore-btn">深入探索 →</button>
-                    </div>
-                </div>
 
-                <!-- 东北地区卡片 -->
-                <div class="info-card region-card" id="card-northeast">
-                    <div class="card-image">
-                        <img src="../../assets/images/region-northeast.jpg" alt="东北地区">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title">东北地区</h4>
-                        <p class="card-description">
-                            东北地区冬季银装素裹，长白山天池神秘莫测，黑龙江畔冰封千里，
-                            这里既是工业重镇，也是旅游胜地，独特的东北文化魅力十足。
-                        </p>
-                        <div class="card-highlights">
-                            <span class="highlight-tag">林海雪原</span>
-                            <span class="highlight-tag">工业重镇</span>
-                            <span class="highlight-tag">民俗文化</span>
+                        <!-- 华南地区数据 -->
+                        <div class="region-data" id="guardian-data-south">
+                            <div class="data-card">
+                                <div class="data-icon">🌲</div>
+                                <div class="data-label">森林覆盖率</div>
+                                <div class="data-value">58.7%</div>
+                                <div class="data-trend trend-up">↑ 1.8%</div>
+                            </div>
+                            <div class="data-card">
+                                <div class="data-icon">☁️</div>
+                                <div class="data-label">空气质量</div>
+                                <div class="data-value">优</div>
+                                <div class="data-trend trend-up">↑ 良好</div>
+                            </div>
+                            <div class="data-card">
+                                <div class="data-icon">💧</div>
+                                <div class="data-label">水质变化</div>
+                                <div class="data-value">Ⅱ类</div>
+                                <div class="data-trend trend-up">↑ 提升</div>
+                            </div>
                         </div>
-                        <button class="explore-btn">深入探索 →</button>
+
+                        <!-- 西北地区数据 -->
+                        <div class="region-data" id="guardian-data-west">
+                            <div class="data-card">
+                                <div class="data-icon">🌲</div>
+                                <div class="data-label">森林覆盖率</div>
+                                <div class="data-value">15.2%</div>
+                                <div class="data-trend trend-up">↑ 0.9%</div>
+                            </div>
+                            <div class="data-card">
+                                <div class="data-icon">☁️</div>
+                                <div class="data-label">空气质量</div>
+                                <div class="data-value">良</div>
+                                <div class="data-trend trend-up">↑ 改善</div>
+                            </div>
+                            <div class="data-card">
+                                <div class="data-icon">💧</div>
+                                <div class="data-label">水质变化</div>
+                                <div class="data-value">Ⅲ类</div>
+                                <div class="data-trend trend-stable">→ 稳定</div>
+                            </div>
+                        </div>
+
+                        <!-- 华东地区数据 -->
+                        <div class="region-data" id="guardian-data-east">
+                            <div class="data-card">
+                                <div class="data-icon">🌲</div>
+                                <div class="data-label">森林覆盖率</div>
+                                <div class="data-value">42.3%</div>
+                                <div class="data-trend trend-up">↑ 1.5%</div>
+                            </div>
+                            <div class="data-card">
+                                <div class="data-icon">☁️</div>
+                                <div class="data-label">空气质量</div>
+                                <div class="data-value">良</div>
+                                <div class="data-trend trend-up">↑ 改善</div>
+                            </div>
+                            <div class="data-card">
+                                <div class="data-icon">💧</div>
+                                <div class="data-label">水质变化</div>
+                                <div class="data-value">Ⅱ类</div>
+                                <div class="data-trend trend-up">↑ 提升</div>
+                            </div>
+                        </div>
+
+                        <!-- 东北地区数据 -->
+                        <div class="region-data" id="guardian-data-northeast">
+                            <div class="data-card">
+                                <div class="data-icon">🌲</div>
+                                <div class="data-label">森林覆盖率</div>
+                                <div class="data-value">44.8%</div>
+                                <div class="data-trend trend-up">↑ 0.6%</div>
+                            </div>
+                            <div class="data-card">
+                                <div class="data-icon">☁️</div>
+                                <div class="data-label">空气质量</div>
+                                <div class="data-value">良</div>
+                                <div class="data-trend trend-stable">→ 稳定</div>
+                            </div>
+                            <div class="data-card">
+                                <div class="data-icon">💧</div>
+                                <div class="data-label">水质变化</div>
+                                <div class="data-value">Ⅱ类</div>
+                                <div class="data-trend trend-up">↑ 提升</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
