@@ -1,4 +1,4 @@
-// ========== 地图页交互逻辑（5区域版）==========
+// ========== 地图页交互逻辑（6区域版）==========
 
 document.addEventListener('DOMContentLoaded', function() {
     // 获取所有地图区域元素
@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const modeTabs = document.querySelectorAll('.mode-tab');
     const virtualMode = document.getElementById('virtual-mode');
     const guardianMode = document.getElementById('guardian-mode');
-    const virtualDefaultCard = document.getElementById('virtual-default-card');
-    const guardianDefaultCard = document.getElementById('guardian-default-card');
 
     // 当前模式状态
     let currentMode = 'virtual'; // 默认虚拟中国模式
+    // 当前选中区域
+    let currentRegion = 'central'; // 默认选中华中地区
 
     // 模式切换事件
     modeTabs.forEach(tab => {
@@ -40,36 +40,26 @@ document.addEventListener('DOMContentLoaded', function() {
             virtualMode.classList.add('active');
             guardianMode.classList.remove('active');
             currentMode = 'virtual';
-            // 显示虚拟中国默认卡片
-            virtualDefaultCard.classList.add('active');
         } else {
             guardianMode.classList.add('active');
             virtualMode.classList.remove('active');
             currentMode = 'guardian';
-            // 显示智慧守护默认卡片
-            guardianDefaultCard.classList.add('active');
         }
 
-        // 移除所有地图区域的激活状态
-        mapRegions.forEach(region => {
-            region.classList.remove('active');
-        });
-
-        // 隐藏所有内容容器
-        const attractionsContainer = document.getElementById('attractions-container');
-        const dataCardsContainer = document.getElementById('data-cards-container');
-        if (attractionsContainer) {
-            attractionsContainer.classList.remove('active');
-        }
-        if (dataCardsContainer) {
-            dataCardsContainer.classList.remove('active');
+        // 保持当前区域状态，不移除激活状态
+        const activeRegion = document.querySelector(`.map-region[data-region="${currentRegion}"]`);
+        if (activeRegion) {
+            activeRegion.classList.add('active');
         }
 
-        // 隐藏所有区域卡片和数据
-        const virtualCards = document.querySelectorAll('[id^="virtual-card-"]');
-        const guardianData = document.querySelectorAll('[id^="guardian-data-"]');
-        virtualCards.forEach(card => card.classList.remove('active'));
-        guardianData.forEach(data => data.classList.remove('active'));
+        // 根据当前模式和区域显示对应内容
+        if (currentRegion && currentRegion !== null) {
+            if (currentMode === 'virtual') {
+                showVirtualCard(currentRegion);
+            } else {
+                showGuardianData(currentRegion);
+            }
+        }
     }
 
     // 为每个地图区域添加点击事件
@@ -77,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
         region.addEventListener('click', function() {
             // 获取区域标识
             const regionId = this.getAttribute('data-region');
+            currentRegion = regionId; // 更新当前选中区域
 
             // 移除所有区域和卡片的激活状态
             removeActiveStates();
@@ -121,11 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
      * @param {string} regionId - 区域ID
      */
     function showVirtualCard(regionId) {
-        // 隐藏虚拟中国默认卡片
-        if (virtualDefaultCard) {
-            virtualDefaultCard.classList.remove('active');
-        }
-
         // 显示景区容器
         const attractionsContainer = document.getElementById('attractions-container');
         if (attractionsContainer) {
@@ -157,11 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
      * @param {string} regionId - 区域ID
      */
     function showGuardianData(regionId) {
-        // 隐藏智慧守护默认卡片
-        if (guardianDefaultCard) {
-            guardianDefaultCard.classList.remove('active');
-        }
-
         // 显示数据容器
         const dataCardsContainer = document.getElementById('data-cards-container');
         if (dataCardsContainer) {
@@ -363,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 添加键盘导航支持（支持5个区域）
+    // 添加键盘导航支持（支持6个区域）
     document.addEventListener('keydown', function(e) {
         // 使用方向键切换区域
         const activeRegion = document.querySelector('.map-region.active');
@@ -382,7 +363,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 添加触摸支持（移动端）- 支持5个区域
+    // 添加触摸支持（移动端）- 支持6个区域
     let touchStartX = 0;
     let touchStartY = 0;
 
@@ -417,17 +398,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 页面加载完成后，自动展示提示
-    setTimeout(() => {
-        if (defaultCard && defaultCard.classList.contains('active')) {
-            // 轻微闪烁提示用户点击
-            const mapSection = document.querySelector('.map-section');
-            mapSection.style.animation = 'pulse 1s ease-in-out 2';
-            setTimeout(() => {
-                mapSection.style.animation = '';
-            }, 2000);
-        }
-    }, 1000);
+    // 页面加载完成后，默认选中华中地区
+    // 直接初始化，不使用setTimeout
+    const centralRegion = document.querySelector('.map-region[data-region="central"]');
+    if (centralRegion) {
+        centralRegion.classList.add('active');
+    }
 
     // 监听窗口大小变化，调整布局
     window.addEventListener('resize', function() {
@@ -518,7 +494,7 @@ style.textContent = `
         }
     }
 
-    /* 加载动画 - 支持5个区域 */
+    /* 加载动画 - 支持6个区域 */
     .map-region {
         animation: regionFadeIn 0.5s ease forwards;
         opacity: 0;
@@ -529,6 +505,7 @@ style.textContent = `
     .map-region:nth-child(3) { animation-delay: 0.3s; }
     .map-region:nth-child(4) { animation-delay: 0.4s; }
     .map-region:nth-child(5) { animation-delay: 0.5s; } /* 东北区域 */
+    .map-region:nth-child(6) { animation-delay: 0.6s; } /* 华中区域 */
 
     @keyframes regionFadeIn {
         from {

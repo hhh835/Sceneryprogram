@@ -153,6 +153,14 @@
     height: 22%;
 }
 
+/* 区域6: 华中 (华北华南中间，略微偏右) - 新增 */
+.map-region[data-region="central"] {
+    top: 38%;
+    left: 45%;
+    width: 12%;
+    height: 15%;
+}
+
 /* SVG 区域形状 */
 .region-svg {
     width: 100%;
@@ -584,6 +592,14 @@
         width: 24%;
         height: 24%;
     }
+
+    /* 移动端华中区域调整 */
+    .map-region[data-region="central"] {
+        top: 62%;
+        right: 5%;
+        width: 16%;
+        height: 18%;
+    }
 }
 
 @media (max-width: 640px) {
@@ -656,6 +672,13 @@
         right: 3%;
         width: 28%;
         height: 26%;
+    }
+
+    .map-region[data-region="central"] {
+        top: 60%;
+        right: 3%;
+        width: 20%;
+        height: 22%;
     }
 
     .region-label {
@@ -731,6 +754,13 @@
         right: 2%;
         width: 32%;
         height: 28%;
+    }
+
+    .map-region[data-region="central"] {
+        top: 58%;
+        right: 2%;
+        width: 24%;
+        height: 26%;
     }
 
     .region-label {
