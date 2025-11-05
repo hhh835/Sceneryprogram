@@ -92,6 +92,14 @@
                         </svg>
                         <span class="region-label">东北</span>
                     </div>
+
+                    <!-- 区域6: 华中地区 -->
+                    <div class="map-region" data-region="central" data-region-name="华中地区">
+                        <svg viewBox="0 0 100 100" class="region-svg">
+                            <polygon points="45,40 52,42 51,52 44,50" class="region-shape"/>
+                        </svg>
+                        <span class="region-label">华中</span>
+                    </div>
                 </div>
             </div>
 
@@ -100,16 +108,9 @@
                 <h3 class="info-title">探索详情</h3>
 
                 <!-- ========== 虚拟中国模式（景区介绍）========== -->
-                <div class="mode-content" id="virtual-mode">
-                    <!-- 默认提示卡片 -->
-                    <div class="info-card default-card active" id="virtual-default-card">
-                        <div class="card-icon">🗺️</div>
-                        <h4 class="card-title">选择探索区域</h4>
-                        <p class="card-description">点击左侧地图上的任意区域，了解该地区的景区景点与自然风光</p>
-                    </div>
-
+                <div class="mode-content active" id="virtual-mode">
                     <!-- 景区介绍卡片容器 - 可滚动 -->
-                    <div class="attractions-container" id="attractions-container">
+                    <div class="attractions-container active" id="attractions-container">
                         <!-- 华北地区景区 -->
                         <div class="info-card region-card" id="virtual-card-north">
                             <div class="card-image">
@@ -209,19 +210,32 @@
                                 <button class="explore-btn">景区详情 →</button>
                             </div>
                         </div>
+
+                        <!-- 华中地区景区 -->
+                        <div class="info-card region-card active" id="virtual-card-central">
+                            <div class="card-image">
+                                <img src="../../assets/images/region-central.jpg" alt="华中地区景区">
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">华中地区</h4>
+                                <p class="card-description">
+                                    华中地区位于中国中部，黄鹤楼千年矗立，武汉三镇风光秀丽，
+                                    湖南岳阳楼千古风流，张家界奇峰峻岭，展现着中华大地的壮美与深邃。
+                                </p>
+                                <div class="card-highlights">
+                                    <span class="highlight-tag">历史文化</span>
+                                    <span class="highlight-tag">名楼古迹</span>
+                                    <span class="highlight-tag">自然奇观</span>
+                                </div>
+                                <button class="explore-btn">景区详情 →</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- ========== 智慧守护模式（数据展示）========== -->
                 <div class="mode-content" id="guardian-mode">
-                    <!-- 默认提示卡片 -->
-                    <div class="info-card default-card active" id="guardian-default-card">
-                        <div class="card-icon">🌿</div>
-                        <h4 class="card-title">选择探索区域</h4>
-                        <p class="card-description">点击左侧地图上的任意区域，查看该地区的生态环保数据</p>
-                    </div>
-
-                    <!-- 三个数据卡片容器 -->
+                    <!-- 数据卡片容器 -->
                     <div class="data-cards-container" id="data-cards-container">
                         <!-- 华北地区数据 -->
                         <div class="region-data" id="guardian-data-north">
@@ -335,6 +349,28 @@
                                 <div class="data-label">水质变化</div>
                                 <div class="data-value">Ⅱ类</div>
                                 <div class="data-trend trend-up">↑ 提升</div>
+                            </div>
+                        </div>
+
+                        <!-- 华中地区数据 -->
+                        <div class="region-data" id="guardian-data-central">
+                            <div class="data-card">
+                                <div class="data-icon">🌲</div>
+                                <div class="data-label">森林覆盖率</div>
+                                <div class="data-value">45.6%</div>
+                                <div class="data-trend trend-up">↑ 1.2%</div>
+                            </div>
+                            <div class="data-card">
+                                <div class="data-icon">☁️</div>
+                                <div class="data-label">空气质量</div>
+                                <div class="data-value">良</div>
+                                <div class="data-trend trend-up">↑ 改善</div>
+                            </div>
+                            <div class="data-card">
+                                <div class="data-icon">💧</div>
+                                <div class="data-label">水质变化</div>
+                                <div class="data-value">Ⅲ类</div>
+                                <div class="data-trend trend-stable">→ 稳定</div>
                             </div>
                         </div>
                     </div>
