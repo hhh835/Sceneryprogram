@@ -1,0 +1,171 @@
+/* ========== 山河卷横向滚动样式 ========== */
+
+/* 模态框默认隐藏 */
+#shanhe-modal {
+    display: none;
+}
+
+.horizontal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.horizontal-scrolling {
+    display: flex;
+    width: 500vw;
+    height: 100vh;
+    transition: transform 0.5s ease;
+    cursor: grab;
+}
+
+.horizontal-slide {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px;
+}
+
+.horizontal-slide img {
+    width: 80%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.horizontal-slide img:hover {
+    transform: scale(1.02);
+}
+
+.horizontal-text {
+    text-align: center;
+    color: white;
+    margin-top: 30px;
+    max-width: 60%;
+}
+
+.horizontal-text h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #00d4ff, #00ff88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+}
+
+.horizontal-text p {
+    font-size: 1.3em;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.horizontal-container .close-btn {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.horizontal-container .close-btn:hover {
+    background: rgba(255, 0, 0, 0.6);
+    transform: rotate(90deg);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.progress-dots {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 100;
+}
+
+.progress-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.progress-dots .dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
+}
+
+.progress-dots .dot.active {
+    background: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+    transform: scale(1.3);
+    border: 2px solid white;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .horizontal-slide {
+        padding: 20px;
+    }
+
+    .horizontal-slide img {
+        width: 90%;
+        height: 60%;
+    }
+
+    .horizontal-text {
+        max-width: 90%;
+    }
+
+    .horizontal-text h2 {
+        font-size: 2em;
+    }
+
+    .horizontal-text p {
+        font-size: 1.1em;
+    }
+
+    .horizontal-container .close-btn {
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+
+    .progress-dots {
+        bottom: 20px;
+        gap: 10px;
+    }
+
+    .progress-dots .dot {
+        width: 10px;
+        height: 10px;
+    }
+}

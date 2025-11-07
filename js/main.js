@@ -134,8 +134,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 每5秒自动切换
-    setInterval(nextImage, 5000);
+    // 每5秒自动切换 - 已禁用
+    // setInterval(nextImage, 5000);
 
     // ========== 山河卷模态框功能 ==========
     const enterBtn = document.getElementById('enter-shanhe-btn');
@@ -186,23 +186,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 点击进入山河卷按钮
-    enterBtn.addEventListener('click', openShanheModal);
+    // 点击进入山河卷按钮 - 已禁用，由 shanhe-horizontal.js 处理
+    // enterBtn.addEventListener('click', openShanheModal);
 
-    // 点击关闭按钮
-    closeBtn.addEventListener('click', closeShanheModal);
+    // 点击关闭按钮 - 已禁用，由 shanhe-horizontal.js 处理
+    // closeBtn.addEventListener('click', closeShanheModal);
 
-    // 滚动事件监听
-    window.addEventListener('wheel', function(e) {
-        if (!isModalOpen) return;
-
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-            if (e.deltaY > 0) {
-                showNextSlide();
-            }
-        }, 100);
-    }, { passive: true });
+    // 滚动事件监听 - 已禁用，由 shanhe-horizontal.js 处理
+    // window.addEventListener('wheel', function(e) {
+    //     if (!isModalOpen) return;
+    //
+    //     clearTimeout(scrollTimeout);
+    //     scrollTimeout = setTimeout(() => {
+    //         if (e.deltaY > 0) {
+    //             showNextSlide();
+    //         }
+    //     }, 100);
+    // }, { passive: true });
 
     // ESC键关闭
     document.addEventListener('keydown', function(e) {

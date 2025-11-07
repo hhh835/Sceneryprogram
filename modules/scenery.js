@@ -16,7 +16,7 @@ const regionData = {
         ]
     },
     'east': {
-        name: '江南锦城',
+        name: '江南锦域',
         images: [
             '../assets/images/scenery-bg-2.jpg',
             '../assets/images/scenery-bg-3.jpg',

@@ -1,0 +1,244 @@
+/* ========== 3D 效果和粒子背景样式 ========== */
+
+/* 3D 容器 */
+.three-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.three-container canvas {
+    display: block;
+}
+
+/* 3D 展示区域 */
+.three-display-area {
+    width: 90%;
+    max-width: 1200px;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.slide-3d-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.slide-3d-image {
+    width: 95vw;
+    max-width: 95vw;
+    height: 80vh;
+    max-height: 80vh;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.8);
+    transform-style: preserve-3d;
+}
+
+.slide-3d-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-3d-text {
+    text-align: center;
+    color: white;
+}
+
+.slide-3d-text h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #00d4ff, #00ff88);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.slide-3d-text p {
+    font-size: 1.2em;
+    opacity: 0.8;
+}
+
+/* 3D 控制提示 */
+.three-controls-hint {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+}
+
+.control-tip {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.control-tip:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateX(-5px);
+}
+
+.control-tip span {
+    font-weight: bold;
+    color: #00d4ff;
+    margin-right: 5px;
+}
+
+/* 3D 进度指示器 */
+.three-progress-dots {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 100;
+}
+
+.three-progress-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.three-progress-dots .dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
+}
+
+.three-progress-dots .dot.active {
+    background: #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+    transform: scale(1.3);
+    border: 2px solid white;
+}
+
+/* 隐藏数据容器 */
+.shanhe-slides-data {
+    display: none !important;
+}
+
+/* 模态框增强 */
+#shanhe-modal .shanhe-content {
+    position: relative;
+}
+
+#shanhe-modal .close-btn {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 101;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#shanhe-modal .close-btn:hover {
+    background: rgba(255, 0, 0, 0.6);
+    transform: rotate(90deg);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+/* 粒子背景增强 */
+#particle-canvas {
+    z-index: 0;
+    opacity: 0.4;
+}
+
+/* 模态框打开时的动画 */
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#shanhe-modal.show {
+    animation: modalOpen 0.5s ease;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .three-controls-hint {
+        top: 10px;
+        right: 10px;
+    }
+
+    .control-tip {
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+
+    .three-progress-dots {
+        bottom: 20px;
+        gap: 10px;
+    }
+
+    .three-progress-dots .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    #shanhe-modal .close-btn {
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+}
+
+/* 删除转圈加载动画 */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 不显示loading动画 */
+.three-container::before {
+    display: none;
+}

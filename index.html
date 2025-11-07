@@ -8,6 +8,10 @@
     <!-- 引入样式 -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/home.css">
+      <!-- 引入 Three.js 库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="css/three-effects.css">
+    <link rel="stylesheet" href="css/shanhe-horizontal.css">
 </head>
 <body>
 
@@ -47,65 +51,57 @@
             <!-- 退出按钮 -->
             <button class="close-btn" id="close-shanhe">×</button>
 
-            <!-- 图片1 -->
-            <div class="shanhe-slide active" data-slide="0">
-                <div class="slide-image">
-                    <img src="assets/images/shanhe-gallery-1.jpg" alt="山河图1">
-                </div>
-                <div class="slide-text">
-                    <h2 class="slide-title">关东霜原</h2>
-                    <p class="slide-description">万里河山尽收眼底</p>
+
+     <!-- 山河图1：关东霜原 -->
+            <div class="shanhe-bg active" data-index="0">
+                <img src="assets/images/shanhe-bg-1.jpg" alt="关东霜原">
+                <div class="shanhe-text">
+                    <h2>关东霜原</h2>
                 </div>
             </div>
 
-            <!-- 图片2 -->
-            <div class="shanhe-slide" data-slide="1">
-                <div class="slide-image">
-                    <img src="assets/images/shanhe-gallery-2.jpg" alt="山河图2">
-                </div>
-                <div class="slide-text">
-                    <h2 class="slide-title">燕赵之地</h2>
-                    <p class="slide-description">科技与自然的融合</p>
+            <!-- 山河图2：燕赵之地 -->
+            <div class="shanhe-bg" data-index="1">
+                <img src="assets/images/shanhe-bg-2.jpg" alt="燕赵之地">
+                <div class="shanhe-text">
+                    <h2>燕赵之地</h2>
                 </div>
             </div>
 
-            <!-- 图片3 -->
-            <div class="shanhe-slide" data-slide="2">
-                <div class="slide-image">
-                    <img src="assets/images/shanhe-gallery-3.jpg" alt="山河图3">
-                </div>
-                <div class="slide-text">
-                    <h2 class="slide-title">江南锦域</h2>
-                    <p class="slide-description">沉浸式山河体验</p>
+            <!-- 山河图3：楚泽云川 -->
+            <div class="shanhe-bg" data-index="2">
+                <img src="assets/images/shanhe-bg-3.jpg" alt="楚泽云川">
+                <div class="shanhe-text">
+                    <h2>楚泽云川</h2>
                 </div>
             </div>
 
-            <!-- 图片4 -->
-            <div class="shanhe-slide" data-slide="3">
-                <div class="slide-image">
-                    <img src="assets/images/shanhe-gallery-4.jpg" alt="山河图4">
-                </div>
-                <div class="slide-text">
-                    <h2 class="slide-title">南粤山海</h2>
-                    <p class="slide-description">每一帧都是风景</p>
+            <!-- 山河图4：江南锦域 -->
+            <div class="shanhe-bg" data-index="3">
+                <img src="assets/images/shanhe-bg-4.jpg" alt="江南锦域">
+                <div class="shanhe-text">
+                    <h2>江南锦域</h2>
                 </div>
             </div>
 
-            <!-- 图片5 -->
-            <div class="shanhe-slide" data-slide="4">
-                <div class="slide-image">
-                    <img src="assets/images/shanhe-gallery-5.jpg" alt="山河图5">
-                </div>
-                <div class="slide-text">
-                    <h2 class="slide-title">云岭高原</h2>
-                    <p class="slide-description">大美中国，震撼呈现</p>
+            <!-- 山河图5：南粤山海 -->
+            <div class="shanhe-bg" data-index="4">
+                <img src="assets/images/shanhe-bg-5.jpg" alt="南粤山海">
+                <div class="shanhe-text">
+                    <h2>南粤山海</h2>
                 </div>
             </div>
 
-            <!-- 滚动提示 -->
-            <div class="scroll-hint">
-                <span>滚动查看更多 ↓</span>
+            <!-- 山河图6：云岭高原 -->
+            <div class="shanhe-bg" data-index="5">
+                <img src="assets/images/shanhe-bg-6.jpg" alt="云岭高原">
+                <div class="shanhe-text">
+                    <h2>云岭高原</h2>
+                </div>
             </div>
+
+            <!-- 粒子效果容器 -->
+            <div class="particles-container"></div>
         </div>
 
         <!-- 黑屏过渡层 -->
@@ -275,8 +271,9 @@
             </div>
         </div>
     </footer>
-
-    <!-- 引入 JavaScript -->
+      <!-- 引入 JavaScript -->
     <script src="js/main.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/shanhe-horizontal.js"></script>
 </body>
 </html>
