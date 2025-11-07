@@ -1,0 +1,226 @@
+/* ========== 3D 风景展示页面样式 ========== */
+
+/* 隐藏导航栏 - 沉浸式体验 */
+body.scenery-page #header {
+    display: none;
+}
+
+/* 主容器 - 沉浸式全屏模式 */
+.scenery-main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    perspective: 1500px;
+    overflow: hidden;
+}
+
+/* 风景展示容器 */
+.scenery-container {
+    width: 100%;
+    position: relative;
+}
+
+/* 横向滚动风景展示区域 - 全屏沉浸 */
+.scenery-display {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    transform-style: preserve-3d;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* 横向滚动图片容器 */
+.scrolling-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    transition: transform 0.8s ease-in-out;
+    z-index: 1;
+}
+
+/* 每张图片幻灯片 */
+.image-slide {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.image-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+/* 文字内容容器 */
+.slide-content {
+    position: absolute;
+    bottom: 80px;
+    left: 40px;
+    right: 40px;
+    z-index: 10;
+    max-width: 600px;
+}
+
+/* 文字样式 */
+.slide-text {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: left;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(139, 115, 85, 0.5);
+    font-weight: 400;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    padding: 20px 30px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+.slide-text.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 返回按钮 */
+.back-btn {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(139, 115, 85, 0.8);
+    color: #FFFFFF;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 30;
+}
+
+.back-btn:hover {
+    background: rgba(139, 115, 85, 0.8);
+    transform: translateX(-5px);
+    box-shadow: 0 5px 20px rgba(139, 115, 85, 0.5);
+}
+
+/* 进度指示器 */
+.progress-dots {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 20;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    width: 50px;
+    border-radius: 6px;
+    background: rgba(139, 115, 85, 0.8);
+    box-shadow: 0 0 20px rgba(139, 115, 85, 0.6);
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.7);
+    transform: scale(1.2);
+}
+
+/* 动画效果 */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotateX(0deg) rotateY(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotateX(2deg) rotateY(2deg);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .slide-text {
+        font-size: 1rem;
+    }
+
+    .slide-content {
+        bottom: 60px;
+        left: 30px;
+        right: 30px;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-text {
+        font-size: 0.9rem;
+        padding: 15px 20px;
+    }
+
+    .slide-content {
+        bottom: 50px;
+        left: 20px;
+        right: 20px;
+        max-width: 400px;
+    }
+
+    .back-btn {
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .progress-dots {
+        bottom: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-text {
+        font-size: 0.85rem;
+        padding: 12px 15px;
+    }
+
+    .slide-content {
+        bottom: 40px;
+        left: 15px;
+        right: 15px;
+        max-width: 350px;
+    }
+
+    .back-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    .progress-dots {
+        bottom: 20px;
+    }
+}

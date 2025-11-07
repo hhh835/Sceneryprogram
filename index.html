@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>方寸屏间 · 万里河山</title>
+    <title>觅山</title>
 
     <!-- 引入样式 -->
     <link rel="stylesheet" href="css/global.css">
@@ -17,7 +17,7 @@
             <!-- LOGO 区域 -->
             <div class="logo">
                 <img src="assets/images/logo.svg" alt="方寸屏间 · 万里河山 LOGO">
-                <span>方寸屏间 · 万里河山</span>
+                <span>觅山</span>
             </div>
 
             <!-- 导航菜单 -->
@@ -35,6 +35,10 @@
         <h1 class="main-title">Landing page title</h1>
         <p class="subtitle">页面介绍</p>
         <button id="enter-shanhe-btn" class="cta-button">点击进入山河卷</button>
+          <!-- 滚动提示 -->
+        <div class="scroll-hint-bottom" onclick="document.getElementById('news').scrollIntoView({behavior: 'smooth'})">
+            <span>下滑查看更多 ↓</span>
+        </div>
     </section>
 
     <!-- ========== 山河卷全屏展示模态框 ========== -->
@@ -264,7 +268,7 @@
     <!-- ========== Footer 页脚 ========== -->
     <footer id="footer">
         <div class="footer-content">
-            <p class="copyright">&copy; 2025 方寸屏间 · 万里河山</p>
+            <p class="copyright">&copy; 2025 觅山</p>
             <div class="footer-info">
                 <span class="work-address">工作地址：[待填写]</span>
                 <span class="contact-phone">手机：[待填写]</span>
