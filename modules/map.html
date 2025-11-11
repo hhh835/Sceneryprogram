@@ -18,7 +18,7 @@
             <!-- LOGO 区域 -->
             <div class="logo">
                 <img src="../assets/images/logo.svg" alt="方寸屏间 · 万里河山 LOGO">
-                <span>觅山</span>
+                <span>览山·LANSHAN</span>
             </div>
 
             <!-- 导航菜单 -->
@@ -33,17 +33,91 @@
 
     <!-- ========== 地图主容器 ========== -->
     <main id="map-page">
-        <div class="map-container">
+        <div class="hero-title-section" style="
+            position: relative;
+            width: 100%;
+            min-height: 45vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 60px;
+        ">
+            <h1 class="main-title flow-title" style="
+                font-size: 72px;
+                font-weight: 700;
+                font-family: '香萃打字机体 W35', sans-serif;
+                color: var(--text-dark);
+                margin-bottom: 30px;
+                text-align: center;
+                letter-spacing: 8px;
+                background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-color) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-shadow: 0 4px 20px rgba(27, 63, 74, 0.15);
+                animation: titleFloat 4s ease-in-out infinite;
+            ">数字中国行</h1>
+
+            <!-- 模式切换按钮 -->
+            <div class="mode-selector" style="
+                display: flex;
+                gap: 20px;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 12px;
+                border-radius: 50px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+                backdrop-filter: blur(10px);
+            ">
+                <button class="mode-tab active" data-mode="virtual" style="
+                    padding: 16px 48px;
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: var(--white);
+                    background: var(--primary-color);
+                    border: none;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    transition: all 0.4s ease;
+                    letter-spacing: 2px;
+                ">虚拟中国</button>
+                <button class="mode-tab" data-mode="guardian" style="
+                    padding: 16px 48px;
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: var(--text-dark);
+                    background: transparent;
+                    border: 2px solid var(--primary-color);
+                    border-radius: 50px;
+                    cursor: pointer;
+                    transition: all 0.4s ease;
+                    letter-spacing: 2px;
+                ">智慧守护</button>
+            </div>
+        </div>
+
+        <div class="map-container" style="
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+            align-items: start;
+        ">
             <!-- 左侧地图区域 -->
-            <div class="map-section">
-                <div class="title-with-tabs">
-                    <h2 class="section-title">数字中国行</h2>
-                    <div class="mode-tabs">
-                        <button class="mode-tab active" data-mode="virtual">虚拟中国</button>
-                        <button class="mode-tab" data-mode="guardian">智慧守护</button>
-                    </div>
-                </div>
-                <p class="section-subtitle">点击地图上的区域，探索中国大地</p>
+            <div class="map-section" style="
+                background: var(--white);
+                border-radius: var(--border-radius-large);
+                padding: 50px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            ">
+                <p class="section-subtitle" style="
+                    font-size: 18px;
+                    color: var(--text-light);
+                    text-align: center;
+                    margin-bottom: 40px;
+                    letter-spacing: 2px;
+                ">点击地图上的区域，探索中国大地</p>
 
                 <!-- 地图背景 -->
                 <div class="map-background">
@@ -121,8 +195,18 @@
             </div>
 
             <!-- 右侧信息区域 -->
-            <div class="info-section">
-                <h3 class="info-title">探索详情</h3>
+            <div class="info-section" style="
+                position: sticky;
+                top: 140px;
+            ">
+                <h3 class="info-title" style="
+                    font-size: 32px;
+                    font-weight: 700;
+                    color: var(--text-dark);
+                    margin-bottom: 30px;
+                    padding-left: 8px;
+                    letter-spacing: 2px;
+                ">探索详情</h3>
 
                 <!-- ========== 虚拟中国模式（景区介绍）========== -->
                 <div class="mode-content active" id="virtual-mode">
@@ -391,91 +475,6 @@
                             </div>
                         </div>
     <!-- 引入 JavaScript -->
-    <!-- 数据可视化脚本 -->
-    <script>
-        // 各省份环境数据
-        const provinceData = {
-            "north": { forest: 23.8, water: 20.5 },
-            "south": { forest: 57.3, water: 78.4 },
-            "west": { forest: 6.8, water: 15.2 },
-            "east": { forest: 39.7, water: 68.9 },
-            "northeast": { forest: 46.2, water: 45.8 },
-            "central": { forest: 43.2, water: 62.3 }
-        };
-        
-        function getIntensityLevel(value, type) {
-            if (type === "forest") {
-                if (value >= 50) return "very-high";
-                if (value >= 35) return "high";
-                if (value >= 20) return "medium";
-                if (value >= 10) return "low";
-                return "very-low";
-            } else if (type === "water") {
-                if (value >= 70) return "very-high";
-                if (value >= 50) return "high";
-                if (value >= 30) return "medium";
-                if (value >= 15) return "low";
-                return "very-low";
-            }
-            return "very-low";
-        }
-        
-        function renderDataVisualization(type) {
-            const mapRegions = document.querySelectorAll(".map-region");
-            mapRegions.forEach(region => {
-                const regionId = region.getAttribute("data-region");
-                const data = provinceData[regionId];
-                if (data) {
-                    const value = type === "forest" ? data.forest : data.water;
-                    const intensity = getIntensityLevel(value, type);
-                    region.setAttribute("data-intensity", intensity);
-                    region.setAttribute("data-viz-type", type);
-                }
-            });
-        }
-        
-        function clearDataVisualization() {
-            const mapRegions = document.querySelectorAll(".map-region");
-            mapRegions.forEach(region => {
-                region.removeAttribute("data-intensity");
-                region.removeAttribute("data-viz-type");
-            });
-        }
-        
-        document.addEventListener("DOMContentLoaded", function() {
-            const vizButtons = document.querySelectorAll(".data-viz-btn");
-            if (vizButtons.length > 0) {
-                vizButtons.forEach(btn => {
-                    btn.addEventListener("click", function() {
-                        const type = this.getAttribute("data-viz");
-                        vizButtons.forEach(b => b.classList.remove("active"));
-                        this.classList.add("active");
-                        renderDataVisualization(type);
-                    });
-                });
-            }
-            
-            const modeTabs = document.querySelectorAll(".mode-tab");
-            if (modeTabs.length > 0) {
-                modeTabs.forEach(tab => {
-                    tab.addEventListener("click", function() {
-                        const mode = this.getAttribute("data-mode");
-                        const vizControls = document.querySelector(".data-visualization-controls");
-                        if (vizControls) {
-                            if (mode === "guardian") {
-                                vizControls.classList.add("visible");
-                            } else {
-                                vizControls.classList.remove("visible");
-                                vizButtons.forEach(btn => btn.classList.remove("active"));
-                                clearDataVisualization();
-                            }
-                        }
-                    });
-                });
-            }
-        });
-    </script>
-
     <script src="map.js"></script>
     <script src="../js/particles.js"></script>
 </body>

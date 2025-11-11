@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>觅山</title>
-
+    <title>览山</title>
+        <!-- 预加载hero区背景图 -->
+    <link rel="preload" as="image" href="assets/images/shanhe-scroll-bg.png">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/home.css">
-      <!-- 引入 Three.js 库 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link rel="stylesheet" href="css/three-effects.css">
     <link rel="stylesheet" href="css/shanhe-horizontal.css">
 </head>
 <body>
@@ -21,7 +19,7 @@
             <!-- LOGO 区域 -->
             <div class="logo">
                 <img src="assets/images/logo.svg" alt="方寸屏间 · 万里河山 LOGO">
-                <span>觅山</span>
+                <span>览山·LANSHAN</span>
             </div>
 
             <!-- 导航菜单 -->
@@ -36,8 +34,8 @@
 
     <!-- ========== Hero 区（山河卷全屏背景） ========== -->
     <section id="hero">
-        <h1 class="main-title">Landing page title</h1>
-        <p class="subtitle">页面介绍</p>
+        <h1 class="main-title">泱泱华夏 锦绣河山</h1>
+        <p class="subtitle">云游千里江山，品味中华文化</p>
         <button id="enter-shanhe-btn" class="cta-button">点击进入山河卷</button>
           <!-- 滚动提示 -->
         <div class="scroll-hint-bottom" onclick="document.getElementById('news').scrollIntoView({behavior: 'smooth'})">
@@ -111,7 +109,7 @@
     <!-- ========== 新闻资讯区 ========== -->
     <section id="news">
         <div class="news-container">
-            <h2 class="section-title">新闻资讯（展示）</h2>
+            <h2 class="section-title">新闻资讯</h2>
 
             <div class="news-grid">
                 <!-- 新闻卡片 1 -->
@@ -121,8 +119,8 @@
                             <img src="assets/images/news-1.jpg" alt="新闻图片1">
                         </div>
                         <div class="news-content">
-                            <h3 class="news-title">新闻标题1</h3>
-                            <p class="news-summary">这里是新闻摘要内容...</p>
+                            <h3 class="news-title">守护长城：像家园一样守护民族瑰宝</h3>
+                            <p class="news-summary">我国启动长城国家文化公园建设，6800名保护员用科技+人力守护民族瑰宝，让古老长城绽放时代光彩。 </p>
                             <button class="expand-btn" aria-expanded="false">
                                 <span class="expand-text">展开阅读</span>
                                 <span class="arrow">▼</span>
@@ -132,13 +130,13 @@
                     <div class="news-expanded-content">
                         <div class="expanded-content-inner">
                             <p class="news-full-content">
-                                这是新闻的完整内容区域。点击展开按钮后，这里会显示新闻的详细内容。
-                                这里可以放置更丰富的新闻信息，包括更多文字、图片、视频或其他多媒体元素。
-                                让读者能够深入了解新闻的各个方面，了解事件的背景、细节和影响。
+                                 万里长城是中华民族代表性符号和重要象征。为保护传承这份宝贵遗产，我国启动长城国家文化公园建设，涵盖15个省区市。
+                                 河北石峡村80岁老人梅景田自发守护长城40年，成立首个农民保护协会。目前全国有6800多名长城保护员，采用"人防+技防"结合北斗卫星、无人机等科技手段。
+                                 延庆境内砖石长城抢险率达88%，预计2026年完工。保护与利用并重，各地深挖长城资源，推动文旅融合发展，让古老长城绽放时代光彩。
                             </p>
                             <div class="news-meta">
-                                <span class="publish-date">发布时间：2025-11-02</span>
-                                <span class="author">作者：编辑</span>
+                                <span class="publish-date">发布时间：2024年06月04日 21:29:32</span>
+                                <span class="author"> 编辑：陈平丽 责任编辑：刘亮</span>
                             </div>
                         </div>
                     </div>
@@ -151,8 +149,9 @@
                             <img src="assets/images/news-2.jpg" alt="新闻图片2">
                         </div>
                         <div class="news-content">
-                            <h3 class="news-title">新闻标题2</h3>
-                            <p class="news-summary">这里是新闻摘要内容...</p>
+                            <h3 class="news-title"> 世界海拔最高圣湖纳木错：朝圣者的心灵圣地 </h3>
+                            <p class="news-summary">纳木错位于藏北高原念青唐古拉山脉北侧，海拔4720米，是世界海拔最高湖泊，我国第二大咸水湖。形成于200万年前，因地壳运动和冰川活动，早期湖面辽阔后缩小。
+                                远离现代文明污染，保持自然原始生态。</p>
                             <button class="expand-btn" aria-expanded="false">
                                 <span class="expand-text">展开阅读</span>
                                 <span class="arrow">▼</span>
@@ -162,13 +161,13 @@
                     <div class="news-expanded-content">
                         <div class="expanded-content-inner">
                             <p class="news-full-content">
-                                这是新闻的完整内容区域。点击展开按钮后，这里会显示新闻的详细内容。
-                                这里可以放置更丰富的新闻信息，包括更多文字、图片、视频或其他多媒体元素。
-                                让读者能够深入了解新闻的各个方面，了解事件的背景、细节和影响。
+                                 被誉为"天湖"的纳木错位于藏北高原念青唐古拉山脉主峰北面，海拔4720米，是世界海拔最高的湖，也是我国第二大咸水湖。
+                                 形成于200万年前地壳构造运动陷落和冰川活动，早期湖面非常辽阔，后因地壳隆起和气候干燥而缩小。距今1万年前，高原气候变得干燥，湖水来源减少。现存三道古湖岸线，最高距现在湖面80余米。
+                                 远离现代文明污染，保持自然原始生态，理所当然成为朝圣者心目中的圣地。 
                             </p>
                             <div class="news-meta">
-                                <span class="publish-date">发布时间：2025-11-02</span>
-                                <span class="author">作者：编辑</span>
+                                <span class="publish-date">发布时间：中国国家地理 2005年第10期</span>
+                                <span class="author">作者：金志国 </span>
                             </div>
                         </div>
                     </div>
@@ -181,8 +180,9 @@
                             <img src="assets/images/news-3.jpg" alt="新闻图片3">
                         </div>
                         <div class="news-content">
-                            <h3 class="news-title">新闻标题3</h3>
-                            <p class="news-summary">这里是新闻摘要内容...</p>
+                            <h3 class="news-title"> "十四五"时期中国绿色发展成就获国际点赞 </h3>
+                            <p class="news-summary"> "十四五"时期中国绿色转型成效显著：PM2.5下降16.3%，森林覆盖率提升2%，可再生能源发电量达3.46万亿千瓦时。
+                                国际人士认为中国展现现代化治理能力，显著提升清洁能源技术可及性，引领全球生态治理，为共建地球生命共同体注入不竭动力。</p>
                             <button class="expand-btn" aria-expanded="false">
                                 <span class="expand-text">展开阅读</span>
                                 <span class="arrow">▼</span>
@@ -192,13 +192,13 @@
                     <div class="news-expanded-content">
                         <div class="expanded-content-inner">
                             <p class="news-full-content">
-                                这是新闻的完整内容区域。点击展开按钮后，这里会显示新闻的详细内容。
-                                这里可以放置更丰富的新闻信息，包括更多文字、图片、视频或其他多媒体元素。
-                                让读者能够深入了解新闻的各个方面，了解事件的背景、细节和影响。
+                                "十四五"时期中国绿色发展迈出重大步伐，生态环境持续改善。
+                                地级及以上城市PM2.5浓度比2020年下降16.3%，森林覆盖率提高约2个百分点。
+                                可再生能源发电量达3.46万亿千瓦时，建成全球最大电动汽车充电网络。国际人士认为中国"说到做到"的现代化治理能力突出，积极培育绿色生产力，显著提升清洁能源技术可及性。中国与100多个国家开展绿色能源项目，为全球生态治理和可持续发展贡献中国力量。
                             </p>
                             <div class="news-meta">
-                                <span class="publish-date">发布时间：2025-11-02</span>
-                                <span class="author">作者：编辑</span>
+                                <span class="publish-date">发布时间：2025年10月21日09:45 </span>
+                                <span class="author">责编：王仁宏、李楠桦</span>
                             </div>
                         </div>
                     </div>
@@ -213,19 +213,19 @@
                         <h3 class="column-title">新闻标题</h3>
                         <div class="title-list">
                             <div class="title-item" data-index="0">
-                                <h4>数字中国建设全面提速</h4>
+                                <h4>海南启动海岸带生态保护修复项目</h4>
                             </div>
                             <div class="title-item" data-index="1">
-                                <h4>智慧城市发展迈向新高度</h4>
+                                <h4>幸福河湖，家门口的“诗与远方”</h4>
                             </div>
                             <div class="title-item" data-index="2">
-                                <h4>科技赋能生态文明建设</h4>
+                                <h4>中国新增22处国家重要湿地</h4>
                             </div>
                             <div class="title-item" data-index="3">
-                                <h4>数字化转型助力乡村振兴</h4>
+                                <h4>中国气象局：2025年秋季后期或进入拉尼娜状态，冬季气候趋势解读</h4>
                             </div>
                             <div class="title-item" data-index="4">
-                                <h4>绿色科技创新引领未来</h4>
+                                <h4>江津中山镇将打造功能性景区“云上太和，五彩梯田”</h4>
                             </div>
                         </div>
 
@@ -264,7 +264,7 @@
     <!-- ========== Footer 页脚 ========== -->
     <footer id="footer">
         <div class="footer-content">
-            <p class="copyright">&copy; 2025 觅山</p>
+            <p class="copyright">&copy; 2025 览山</p>
             <div class="footer-info">
                 <span class="work-address">工作地址：[待填写]</span>
                 <span class="contact-phone">手机：[待填写]</span>

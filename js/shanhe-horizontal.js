@@ -61,6 +61,10 @@ class ShanheScroll {
     open() {
         console.log('========== 打开山河卷 ==========');
 
+        // 🔒 锁定页面滚动 - 全屏模式
+        document.body.style.overflow = 'hidden';
+        console.log('🔒 已锁定页面滚动');
+
         // 重置状态
         this.currentIndex = 0;
         this.isModalOpen = true;
@@ -96,6 +100,10 @@ class ShanheScroll {
         if (modal) {
             modal.style.display = 'none';
         }
+
+        // 🔓 恢复页面滚动
+        document.body.style.overflow = '';
+        console.log('🔓 已恢复页面滚动');
 
         this.isModalOpen = false;
 
@@ -136,7 +144,7 @@ class ShanheScroll {
             // 更新左下角文字
             this.updateSlideText();
 
-        }, 4000); // 每4秒自动切换
+        }, 4500); // 每4.5秒自动切换
     }
 
     // 停止自动滚动

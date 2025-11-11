@@ -151,7 +151,7 @@
     gap: 30px;
     background: linear-gradient(135deg, #24292e 0%, #2c313a 100%);
     padding: 50px;
-    border-radius: 20px;
+    border-radius: var(--border-radius-large);
     color: var(--white);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }

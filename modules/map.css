@@ -1,5 +1,29 @@
 /* ========== 地图页专用样式 ========== */
 
+/* 标题流动效果 */
+@keyframes titleFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        filter: drop-shadow(0 4px 20px rgba(27, 63, 74, 0.15));
+    }
+    25% {
+        transform: translateY(-8px) rotate(0.3deg);
+        filter: drop-shadow(0 8px 28px rgba(27, 63, 74, 0.25));
+    }
+    50% {
+        transform: translateY(-5px) rotate(0deg);
+        filter: drop-shadow(0 6px 24px rgba(27, 63, 74, 0.2));
+    }
+    75% {
+        transform: translateY(-10px) rotate(-0.3deg);
+        filter: drop-shadow(0 8px 28px rgba(27, 63, 74, 0.25));
+    }
+}
+
+.flow-title {
+    animation: titleFloat 4s ease-in-out infinite;
+}
+
 /* 页面主容器 - 给顶部导航留空间 */
 #map-page {
     min-height: calc(100vh - 120px);

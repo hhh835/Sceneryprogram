@@ -27,11 +27,26 @@ document.addEventListener('DOMContentLoaded', function() {
      * @param {string} mode - 'virtual' 或 'guardian'
      */
     function switchMode(mode) {
-        // 更新标签页状态
+        // 更新标签页状态和样式
         modeTabs.forEach(tab => {
             tab.classList.remove('active');
             if (tab.getAttribute('data-mode') === mode) {
                 tab.classList.add('active');
+                // 设置激活状态样式
+                tab.style.background = 'var(--primary-color)';
+                tab.style.color = 'var(--white)';
+                tab.style.border = 'none';
+            } else {
+                // 设置非激活状态样式
+                if (tab.getAttribute('data-mode') === 'virtual') {
+                    tab.style.background = 'transparent';
+                    tab.style.color = 'var(--text-dark)';
+                    tab.style.border = 'none';
+                } else {
+                    tab.style.background = 'transparent';
+                    tab.style.color = 'var(--text-dark)';
+                    tab.style.border = '2px solid var(--primary-color)';
+                }
             }
         });
 

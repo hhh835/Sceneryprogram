@@ -2,17 +2,26 @@
 
 /* CSS 变量定义 */
 :root {
-    --primary-color: #8B7355;          /* 浅棕色主色调 */
-    --primary-light: #A8957E;          /* 浅一点的棕色 */
-    --text-dark: #2C2C2C;              /* 深色文字 */
-    --text-light: #666666;             /* 浅色文字 */
-    --bg-light: #F5F2ED;               /* 浅色背景 */
-    --white: #FFFFFF;                  /* 纯白 */
-    --black: #000000;                  /* 纯黑 */
+    --primary-color: #C4D7D6;          /* 50% 主色调 */
+    --primary-light: #E8F0EF;          /* 更浅的主色调 */
+    --text-dark: #FEC13F;          /* 100% 深色文字 - 金黄色 */
+    --text-light: #828282;             /* 100% 浅色文字 */
+    --bg-light: linear-gradient(135deg, #2D2E3D 0%, #3A3B4D 50%, #2F3041 100%);  /* 深蓝灰色渐变 */
+    --black: #2D2E3D;                  /* 深蓝灰色替代纯黑 */
     --border-color: #E0D5C8;           /* 边框色 */
-    
-    --font-family-cn: "PingFang SC", "Microsoft YaHei", sans-serif;
-    --font-family-en: "Inter", "Arial", sans-serif;
+
+    /* 字体定义 */
+    --font-family-cn: "香萃打字机体 W35", "SimSun", sans-serif;  /* 中文 */
+    --font-family-en: "Text Me One", "Arial", sans-serif;               /* 英文 */
+    --font-family-other: "等线 Light", "SimSun", sans-serif;             /* 其他 */
+
+    /* 圆角变量定义 */
+    --border-radius-card: 8px;       /* 卡片圆角（所有图片） */
+    --border-radius-card-text: 0px;  /* 新闻轮播旁文本框 */
+    --border-radius-btn: 8px;        /* 按钮圆角 */
+    --border-radius-btn-large: 50px; /* About Us 按钮 */
+    --border-radius-small: 20px;     /* 小元素（徽章、提示） */
+    --border-radius-large: 20px;     /* 大容器（模态框、轮播图） */
 }
 
 /* 重置和基础样式 */
@@ -27,10 +36,56 @@ html {
 }
 
 body {
-    font-family: var(--font-family-cn);
+    font-family: var(--font-family-other);
     color: var(--text-dark);
     line-height: 1.6;
-    background-color: var(--bg-light);
+    background: var(--bg-light);
+    /* 添加浮动动画 */
+    animation: bodyFloat 8s ease-in-out infinite;
+}
+/* 星光碎钻背景效果 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.8), transparent),
+        radial-gradient(2px 2px at 40% 70%, rgba(173, 216, 255, 0.6), transparent),
+        radial-gradient(1px 1px at 90% 40%, rgba(255, 255, 255, 0.9), transparent),
+        radial-gradient(1px 1px at 50% 50%, rgba(200, 220, 255, 0.7), transparent),
+        radial-gradient(2px 2px at 80% 10%, rgba(255, 255, 255, 0.5), transparent);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 450px 450px, 400px 400px;
+    animation: starryMove 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+@keyframes starryMove {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-550px, -550px);
+    }
+}
+
+/* 全局浮动动画 */
+@keyframes bodyFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+/* 小标题加粗 */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
 }
 
 /* 容器 */
@@ -61,9 +116,28 @@ button {
 /* 通用卡片样式 */
 .card {
     background: var(--white);
-    border-radius: 8px;
+    border-radius: var(--border-radius-card);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 小标题加粗 */
+.card .card-title, .card h3, .card h4 {
+    font-weight: 700;
+}
+
+/* 通用按钮样式 */
+.btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: var(--border-radius-btn);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-large {
+    border-radius: var(--border-radius-btn-large);
 }
 
 .card:hover {

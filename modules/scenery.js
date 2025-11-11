@@ -5,9 +5,9 @@ const regionData = {
     'north': {
         name: '燕赵之地',
         images: [
-            '../assets/images/scenery-bg-1.jpg',
-            '../assets/images/scenery-bg-2.jpg',
-            '../assets/images/scenery-bg-3.jpg'
+            '../assets/images/region-north-1.jpg',
+            '../assets/images/region-north-2.jpg',
+            '../assets/images/region-north-3.jpg'
         ],
         texts: [
             '华北平原，承载着中华文明的厚重历史。万里长城蜿蜒起伏，如巨龙盘踞在群山之巅，见证着千年沧桑。这里有古都北京的皇家气派，有山西平遥的古城风韵，有内蒙草原的辽阔壮美。',
@@ -18,9 +18,9 @@ const regionData = {
     'east': {
         name: '江南锦域',
         images: [
-            '../assets/images/scenery-bg-2.jpg',
-            '../assets/images/scenery-bg-3.jpg',
-            '../assets/images/scenery-bg-4.jpg'
+            '../assets/images/region-east-1.jpg',
+            '../assets/images/region-east-2.jpg',
+            '../assets/images/region-east-3.jpg'
         ],
         texts: [
             '江南水乡，烟雨朦胧。苏州园林的精巧雅致，杭州西湖的诗情画意，南京古都的深厚底蕴，构成了江南最美的画卷。小桥流水、粉墙黛瓦、诗画般的意境，让人仿佛置身于古代文人墨客的诗词中。',
@@ -31,9 +31,9 @@ const regionData = {
     'south': {
         name: '南粤山海',
         images: [
-            '../assets/images/scenery-bg-3.jpg',
-            '../assets/images/scenery-bg-4.jpg',
-            '../assets/images/scenery-bg-5.jpg'
+            '../assets/images/region-south-1.jpg',
+            '../assets/images/region-south-2.jpg',
+            '../assets/images/region-south-3.jpg'
         ],
         texts: [
             '南粤大地，山海相依。桂林山水甲天下，漓江如青罗带，山似碧玉簪。厦门鼓浪屿的浪漫海风，广东深圳的现代繁华，香港澳门的中西合璧，展现了这片土地的多姿多彩。',
@@ -44,9 +44,9 @@ const regionData = {
     'west': {
         name: '云岭高原',
         images: [
-            '../assets/images/scenery-bg-4.jpg',
-            '../assets/images/scenery-bg-5.jpg',
-            '../assets/images/scenery-bg-6.jpg'
+            '../assets/images/region-west-1.jpg',
+            '../assets/images/region-west-2.jpg',
+            '../assets/images/region-west-3.jpg'
         ],
         texts: [
             '云贵高原，地貌奇绝。云南大理的苍山洱海，风花雪月美不胜收；贵州黄果树瀑布的磅礴气势，水声如雷震撼人心；四川九寨沟的童话世界，五彩斑斓如梦如幻。',
@@ -57,9 +57,9 @@ const regionData = {
     'northeast': {
         name: '关东霜原',
         images: [
-            '../assets/images/scenery-bg-5.jpg',
-            '../assets/images/scenery-bg-6.jpg',
-            '../assets/images/scenery-bg-1.jpg'
+            '../assets/images/region-northeast-1.jpg',
+            '../assets/images/region-northeast-2.jpg',
+            '../assets/images/region-northeast-3.jpg'
         ],
         texts: [
             '关东大地，霜原莽莽。长白山的天池，神秘而圣洁，如蓝宝石镶嵌在群山之巅；黑龙江的冰雪世界，纯美而壮丽，冰雕晶莹剔透；吉林雾凇的奇观，如诗如画，千树万树梨花开。这里是中国的大粮仓，肥沃的黑土地一望无际，孕育着丰收的希望。',
@@ -70,9 +70,9 @@ const regionData = {
     'central': {
         name: '楚泽云川',
         images: [
-            '../assets/images/scenery-bg-6.jpg',
-            '../assets/images/scenery-bg-1.jpg',
-            '../assets/images/scenery-bg-2.jpg'
+            '../assets/images/region-central-1.jpg',
+            '../assets/images/region-central-2.jpg',
+            '../assets/images/region-central-3.jpg'
         ],
         texts: [
             '楚地云川，江河奔流。湖南张家界的奇峰异石，直插云霄；湖北三峡的雄伟壮丽，江水滔滔；江西庐山的秀美飘逸，云雾缭绕。这里是屈原的故乡，楚辞的浪漫在这里传承。',
