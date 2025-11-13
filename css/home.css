@@ -33,10 +33,16 @@
     color: var(--text-dark);
 }
 
-#header .logo span {
+#header .logo .logo-cn {
     font-family: '香萃打字机体 W35', 'STKaiti', 'KaiTi', '楷体', serif;
     font-weight: 1000;
     letter-spacing: 1px;
+}
+/* 英文"LANSHAN"使用等线或其他英文字体 */
+#header .logo .logo-en {
+    font-family: var(--font-family-en);
+    font-weight: 100;
+    letter-spacing: 2px;
 }
 
 #header .logo img {
@@ -121,19 +127,15 @@
 }
 
 #hero .main-title {
-    font-size: 56px;
-    font-weight: 700;
+    font-size: 120px;
+    font-weight: 200;
     margin-bottom: 20px;
-    color: var(--primary-color);
     letter-spacing: 2px;
     font-family: var(--font-family-cn);
     /* 添加流动性动画 */
     animation: titleFlow 3s ease-in-out infinite;
-    text-shadow: 0 2px 10px rgba(196, 215, 214, 0.5);
-    background: linear-gradient(45deg, var(--primary-color), var(--primary-light), var(--text-dark));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--veryblack);
+    text-shadow: 0 2px 10px rgb(0, 0, 0);
     position: relative;
 }
 
@@ -141,29 +143,29 @@
 @keyframes titleFlow {
     0%, 100% {
         transform: translateY(0) scale(1);
-        filter: drop-shadow(0 0 0 rgba(196, 215, 214, 0.5));
+        filter: drop-shadow(0 0 0 rgba(0, 0, 0, 0.3));
     }
     50% {
         transform: translateY(-5px) scale(1.02);
-        filter: drop-shadow(0 5px 15px rgba(196, 215, 214, 0.8));
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6));
     }
 }
 
-#hero .subtitle {
-    font-size: 20px;
-    color: var(--text-dark);
+/*#hero .subtitle {
+    font-size: 30px;
+    color: var(--cx);
     margin-bottom: 40px;
     max-width: 600px;
     line-height: 1.8;
-    font-family: var(--font-family-other);
+    font-family: var(--font-family-either);
     /* 添加流动性动画 */
-    animation: subtitleFloat 4s ease-in-out infinite;
-    text-shadow: 0 1px 3px rgba(27, 63, 74, 0.3);
+    /*animation: subtitleFloat 4s ease-in-out infinite;
+    text-shadow: 0 1px 3px rgba(184, 152, 152, 0.527);
     position: relative;
 }
 
 /* 副标题流动性动画 */
-@keyframes subtitleFloat {
+/*@keyframes subtitleFloat {
     0%, 100% {
         transform: translateX(0);
         opacity: 0.9;
@@ -172,7 +174,7 @@
         transform: translateX(5px);
         opacity: 1;
     }
-}
+}*/
 
 #hero .cta-button {
     padding: 16px 48px;
@@ -186,8 +188,8 @@
 }
 
 #hero .cta-button:hover {
-    background: var(--text-dark);
-    color: #2D2E3D;
+    background: #C4D7D6;  /* 使用主色调，保持良好对比度 */
+    color: var(--black);  /* 确保文字清晰可见 */
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
@@ -231,7 +233,7 @@
 }
 
 #news .news-card {
-    background: var(--white);
+    background: rgba(142, 183, 219, 0.185);
     border-radius: var(--border-radius-card);
     overflow: hidden;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
@@ -384,7 +386,7 @@
 
 #news .news-title-item {
     padding: 12px 16px;
-    background: var(--white);
+    background: rgba(142, 183, 219, 0.185);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-btn);
     margin-bottom: 10px;
@@ -405,12 +407,12 @@
 #news .list-title {
     font-size: 15px;
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--white) !important;
     transition: color 0.3s ease;
 }
 
 #news .news-title-item:hover .list-title {
-    color: var(--white);
+    color: var(--white) !important;
 }
 
 /* 右侧大图片 */
@@ -465,15 +467,16 @@
 }
 
 #news .continue-explore:hover {
-    background: var(--text-dark);
-    border-color: var(--text-dark);
+    background: #C4D7D6;  /* 使用主色调，保持良好对比度 */
+    border-color: #C4D7D6;
+    color: var(--black);  /* 确保文字清晰可见 */
 }
 
 /* ========== 新闻详情展开区 ========== */
 #news .news-expanded-section {
     margin-top: 80px;
     padding: 40px;
-    background: var(--white);
+    background: rgba(142, 183, 219, 0.185);
     border-radius: var(--border-radius-card);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
     /* 添加浮动效果 */
@@ -519,7 +522,7 @@
 
 #news .title-item {
     padding: 14px 20px;
-    background: var(--bg-light);
+    background: rgba(77, 101, 122, 0.175);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-btn);
     cursor: pointer;
@@ -527,35 +530,35 @@
 }
 
 #news .title-item:hover {
-    background: var(--primary-light);
+    background: #2C3E50;
     color: var(--white);
-    border-color: var(--primary-light);
+    border-color: #2C3E50;
     transform: translateX(8px);
-    box-shadow: 0 4px 12px rgba(196, 215, 214, 0.2);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.089);
 }
 
 #news .title-item h4 {
     font-size: 16px;
     font-weight: 500;
-    color: var(--text-dark);
+    color: var(--white) !important;
     transition: color 0.3s ease;
 }
 
 #news .title-item:hover h4 {
-    color: var(--white);
+    color: var(--white) !important;
 }
 
 /* 活动状态的标题项 */
 #news .title-item.active {
-    background: var(--primary-light);
+    background: #2C3E50;
     color: var(--white);
-    border-color: var(--primary-light);
+    border-color: #2C3E50;
     transform: translateX(8px);
-    box-shadow: 0 4px 12px rgba(196, 215, 214, 0.2);
+    box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
 }
 
 #news .title-item.active h4 {
-    color: var(--white);
+    color: var(--white) !important;
     font-weight: 600;
 }
 
@@ -596,8 +599,9 @@
 }
 
 #news .title-btn.continue-btn:hover {
-    background: var(--text-dark);
-    border-color: var(--text-dark);
+    background: #C4D7D6;  /* 使用主色调，保持良好对比度 */
+    border-color: #C4D7D6;
+    color: var(--black);  /* 确保文字清晰可见 */
 }
 
 /* 右侧图片列（轮播图） */
@@ -607,7 +611,7 @@
 
 #news .image-carousel-container {
     width: 100%;
-    height: 400px;
+    height: 600px;
     border-radius: var(--border-radius-large);
     overflow: hidden;
     position: relative;
@@ -1007,7 +1011,7 @@
     }
 
     #news .image-carousel-container {
-        min-height: 250px;
+        min-height: 350px;
     }
 
     #news .title-section-buttons {

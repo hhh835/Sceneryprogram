@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>景区详情 - 方寸屏间</title>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="scenery-detail.css">
+</head>
+<body>
+    <!-- 全屏景区轮播页 -->
+    <div class="scenery-detail-page">
+        <!-- 退出按钮 -->
+        <button class="close-detail-btn" id="close-detail">×</button>
+
+        <!-- 景区图片展示区 -->
+        <div class="scenery-image-section">
+            <img id="detail-scenery-image" src="" alt="景区图片" class="detail-scenery-image active">
+        </div>
+
+        <!-- 文字解说区 -->
+        <div class="scenery-text-section">
+            <p id="detail-scenery-description" class="detail-scenery-description"></p>
+        </div>
+
+        <!-- 轮播指示器 -->
+        <div class="detail-scenery-indicators" id="detail-indicators"></div>
+    </div>
+
+    <script>
+        // 从 URL 获取区域参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const regionId = urlParams.get('region');
+
+        // 景区数据（从 map.js 复制）
+        const regionInfo = {
+            'north': {
+                name: '华北地区',
+                title: '燕赵之地·华北',
+                scenery: {
+                    images: [
+                        { src: '../assets/images/north-scenery-1.jpg', text: '五台山佛教圣地，文殊菩萨道场。青灯古寺钟声悠远，千年古刹香火绵延，修行净土净化心灵。' },
+                        { src: '../assets/images/north-scenery-2.jpg', text: '紫禁城红墙金瓦，承载着六百年王朝兴衰。午门、太和殿、乾清宫，每一处都诉说着帝王的威严与历史的厚重。' },
+                        { src: '../assets/images/north-scenery-3.jpg', text: '草原天路在内蒙古高原上延伸，蓝天白云下，牛羊成群，牧歌悠扬。这里是游牧民族世代生息的家园。' }
+                    ]
+                }
+            },
+            'south': {
+                name: '华南地区',
+                title: '南粤山海·华南',
+                scenery: {
+                    images: [
+                        { src: '../assets/images/south-scenery-1.jpg', text: '桂林山水如诗如画，漓江两岸奇峰倒影，如千军万马排兵布阵。泛舟江上，如在画中游，人间仙境不过如此。' },
+                        { src: '../assets/images/south-scenery-2.jpg', text: '维多利亚港夜色如画，霓虹璀璨映海天。太平山顶俯瞰香江两岸，摩天大楼灯火辉煌，东方之珠魅力无限。' },
+                        { src: '../assets/images/south-scenery-3.jpg', text: '三亚海棠湾椰林摇曳，碧海银滩椰风海韵。亚特兰蒂斯酒店梦幻奢华，免税购物天堂，海天一色度假胜地。' }
+                    ]
+                }
+            },
+            'west': {
+                name: '西北地区',
+                title: '云岭高原·西部',
+                scenery: {
+                    images: [
+                        { src: '../assets/images/west-scenery-1.jpg', text: '莫高窟千佛洞内壁画精美绝伦，飞天反弹琵琶，诉说着丝路辉煌。这里是世界文化遗产的璀璨明珠。' },
+                        { src: '../assets/images/west-scenery-2.jpg', text: '布达拉宫雪域圣地，红山之巅金顶辉煌。千年宫殿层层叠叠，转经筒声声不息，圣洁之光普照众生。' },
+                        { src: '../assets/images/west-scenery-3.jpg', text: '塔克拉玛干沙漠金色瀚海，沙丘连绵如波涛起伏。驼铃声声穿越沙海，夕阳西下红霞满天，大漠孤烟直长河落日圆。' }
+                    ]
+                }
+            },
+            'east': {
+                name: '华东地区',
+                title: '江南锦城·华东',
+                scenery: {
+                    images: [
+                        { src: '../assets/images/east-scenery-1.jpg', text: '西湖烟雨蒙蒙，苏堤春晓、断桥残雪、雷锋夕照、南屏晚钟，诗情画意醉了千年时光。' },
+                        { src: '../assets/images/east-scenery-2.jpg', text: '福建土楼客家民居，圆形方型堡垒森严。生土夯筑冬暖夏凉，一座土楼一家族，围龙屋中情深意长。' },
+                        { src: '../assets/images/east-scenery-3.jpg', text: '苏州园林甲天下，拙政园一步一景、曲径通幽。假山池沼精雕细琢，亭台楼阁诗意盎然，江南风雅集大成。' }
+                    ]
+                }
+            },
+            'northeast': {
+                name: '东北地区',
+                title: '关东霜原·东北',
+                scenery: {
+                    images: [
+                        { src: '../assets/images/northeast-scenery-1.jpg', text: '吉林雾凇寒冬绽放，玉树琼花满枝头。松花江畔十里长堤，霜花凝结如梨花盛开，银装素裹童话世界。' },
+                        { src: '../assets/images/northeast-scenery-2.jpg', text: '长白山天池火山明珠，十六峰环抱一池碧水。高山瀑布飞流直下，温泉汩汩驱寒暖身，神秘仙境引人入胜。' },
+                        { src: '../assets/images/northeast-scenery-3.jpg', text: '大兴安岭秋色斑斓，层林尽染美如画。白桦金黄枫叶火红，森林深处麋鹿奔跑，天然氧吧醉人心脾。' }
+                    ]
+                }
+            },
+            'central': {
+                name: '华中地区',
+                title: '楚泽云川·华中',
+                scenery: {
+                    images: [
+                        { src: '../assets/images/central-scenery-1.jpg', text: '都江堰千年水利工程，岷江之上鬼斧神工。李冰父子分水鱼嘴，飞沙堰泄洪排沙，造就天府之国沃野千里。' },
+                        { src: '../assets/images/central-scenery-2.jpg', text: '张家界奇峰三千，秀水八百。阿凡达的悬浮山原型地，奇峰怪石云雾缭绕，如仙境降临人间。' },
+                        { src: '../assets/images/central-scenery-3.jpg', text: '武汉鸭脖麻辣鲜香，酱香浓郁。百年传承工艺，卤制入味，辣而不燥，麻而不苦，唇齿留香回味悠长。' }
+                    ]
+                }
+            }
+        };
+
+        // 当前轮播状态
+        let currentImageIndex = 0;
+        let carouselInterval = null;
+        const CAROUSEL_INTERVAL_MS = 4000;
+
+        /**
+         * 设置景区图片和描述
+         */
+        function setSceneryImage(index) {
+            const region = regionInfo[regionId];
+            if (!region || !region.scenery) return;
+
+            currentImageIndex = index;
+            const imageData = region.scenery.images[index];
+
+            const imageElement = document.getElementById('detail-scenery-image');
+            const descriptionElement = document.getElementById('detail-scenery-description');
+            const indicatorsElement = document.getElementById('detail-indicators');
+
+            // 切换图片
+            imageElement.src = imageData.src;
+            imageElement.alt = region.name;
+
+            // 切换描述
+            descriptionElement.textContent = imageData.text;
+
+            // 更新指示器
+            const dots = indicatorsElement.querySelectorAll('.indicator');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        /**
+         * 开始轮播
+         */
+        function startCarousel() {
+            stopCarousel();
+            carouselInterval = setInterval(() => {
+                const region = regionInfo[regionId];
+                if (!region) return;
+
+                currentImageIndex = (currentImageIndex + 1) % region.scenery.images.length;
+                setSceneryImage(currentImageIndex);
+            }, CAROUSEL_INTERVAL_MS);
+        }
+
+        /**
+         * 停止轮播
+         */
+        function stopCarousel() {
+            if (carouselInterval) {
+                clearInterval(carouselInterval);
+                carouselInterval = null;
+            }
+        }
+
+        /**
+         * 初始化景区详情页
+         */
+        function initSceneryDetail() {
+            const region = regionInfo[regionId];
+            if (!region || !region.scenery) {
+                window.location.href = 'map.html';
+                return;
+            }
+
+            // 创建轮播指示器
+            const indicatorsElement = document.getElementById('detail-indicators');
+            indicatorsElement.innerHTML = '';
+            region.scenery.images.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.className = 'indicator' + (index === 0 ? ' active' : '');
+                dot.addEventListener('click', () => {
+                    setSceneryImage(index);
+                });
+                indicatorsElement.appendChild(dot);
+            });
+
+            // 设置第一张图片和描述
+            setSceneryImage(0);
+
+            // 开始轮播
+            startCarousel();
+
+            // 添加关闭事件监听
+            const closeBtn = document.getElementById('close-detail');
+            closeBtn.onclick = () => {
+                window.location.href = 'map.html';
+            };
+
+            // 监听键盘事件
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    window.location.href = 'map.html';
+                }
+            });
+        }
+
+        // 页面加载完成后初始化
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSceneryDetail);
+        } else {
+            initSceneryDetail();
+        }
+    </script>
+</body>
+</html>

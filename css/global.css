@@ -8,12 +8,19 @@
     --text-light: #828282;             /* 100% 浅色文字 */
     --bg-light: linear-gradient(135deg, #2D2E3D 0%, #3A3B4D 50%, #2F3041 100%);  /* 深蓝灰色渐变 */
     --black: #2D2E3D;                  /* 深蓝灰色替代纯黑 */
-    --border-color: #E0D5C8;           /* 边框色 */
+    --white: #ffffff;                  /* 纯白色 */
+    --border-color: #d1c8b0;           /* 边框色 */
+    --veryblack:#ffffff;
+    --cx:#D6CADD;
+    --lh:#ffffff;
+    --card-border-news: #CAC0C1;        /* 新闻模块边框色 - 珊瑚红 */
+   --card-border-map: #CAC0C1;         /* 地图模块边框色 - 青绿色 */
 
     /* 字体定义 */
-    --font-family-cn: "香萃打字机体 W35", "SimSun", sans-serif;  /* 中文 */
-    --font-family-en: "Text Me One", "Arial", sans-serif;               /* 英文 */
-    --font-family-other: "等线 Light", "SimSun", sans-serif;             /* 其他 */
+    --font-family-cn: "字魂龙腾楷书(商用需授权)", "SimSun", sans-serif;  /* 中文 */
+    --font-family-en: "等线 Light (中文标题)", "Arial", sans-serif;               /* 英文 */
+    --font-family-other: "字魂檀宋(商用需授权)", "SimSun", sans-serif;             /* 其他 */
+    --font-family-either: "字魂敦煌经韵楷(商用需授权)", "SimSun",sans-serif;
 
     /* 圆角变量定义 */
     --border-radius-card: 8px;       /* 卡片圆角（所有图片） */
@@ -143,4 +150,11 @@ button {
 .card:hover {
     transform: translateY(-4px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+#news .news-card {
+    border: 2px solid var(--card-border-news);
+}
+
+.info-card {
+    border: 2px solid var(--card-border-map);
 }
